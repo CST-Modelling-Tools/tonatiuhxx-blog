@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-    <id>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/</id>
+    <id>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog</id>
     <title>Tonatiuh++ Development Blog Blog</title>
     <updated>2025-10-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
-    <link rel="alternate" href="https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/"/>
+    <link rel="alternate" href="https://CST-Modelling-Tools.github.io/tonatiuhxx-blog"/>
     <subtitle>Tonatiuh++ Development Blog Blog</subtitle>
     <icon>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/img/favicon.ico</icon>
     <entry>
@@ -21,6 +21,6 @@
             <name>Manuel Blanco</name>
             <uri>https://github.com/CST-Modelling-Tools</uri>
         </author>
-        <category label="welcome" term="welcome"/>
+        <category label="Welcome" term="Welcome"/>
     </entry>
 </feed>

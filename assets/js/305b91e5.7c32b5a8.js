@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktonatiuhxx_blog=globalThis.webpackChunktonatiuhxx_blog||[]).push([[511],{5551:t=>{t.exports=JSON.parse('{"tags":[{"label":"Welcome","permalink":"/tonatiuhxx-blog/tags/tags/welcome","description":"Posts introducing the Tonatiuh++ development blog.","count":1}]}')}}]);
