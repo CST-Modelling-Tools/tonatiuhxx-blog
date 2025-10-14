@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktonatiuhxx_blog=globalThis.webpackChunktonatiuhxx_blog||[]).push([[511],{5551:a=>{a.exports=JSON.parse('{"tags":[{"label":"welcome","permalink":"/tonatiuhxx-blog/tags/welcome","count":1}]}')}}]);
