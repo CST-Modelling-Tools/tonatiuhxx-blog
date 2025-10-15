@@ -23,10 +23,10 @@
             <uri>https://github.com/CST-Modelling-Tools</uri>
         </author>
         <category label="Welcome" term="Welcome"/>
-        <category label="tonatiuh" term="tonatiuh"/>
-        <category label="solar-energy" term="solar-energy"/>
-        <category label="ray-tracing" term="ray-tracing"/>
-        <category label="cst" term="cst"/>
-        <category label="csp" term="csp"/>
+        <category label="Tonatiuh" term="Tonatiuh"/>
+        <category label="Solar Energy" term="Solar Energy"/>
+        <category label="Ray Tracing" term="Ray Tracing"/>
+        <category label="CST" term="CST"/>
+        <category label="CSP" term="CSP"/>
     </entry>
 </feed>
