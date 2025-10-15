@@ -22,14 +22,15 @@ const config = {
   // Set the production url of your site here
   url: 'https://CST-Modelling-Tools.github.io',
   baseUrl: '/tonatiuhxx-blog/',
+  trailingSlash: false,
   organizationName: 'CST-Modelling-Tools',
   projectName: 'tonatiuhxx-blog',
   deploymentBranch: 'gh-pages',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'facebook', // Usually your GitHub org/user name.
-  projectName: 'docusaurus', // Usually your repo name.
+  organizationName: 'CST-Modelling-Tools', // Usually your GitHub org/user name.
+  projectName: 'tonatiuhxx-blog', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
