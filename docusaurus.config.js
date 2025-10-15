@@ -42,6 +42,17 @@ const config = {
     locales: ['en'],
   },
 
+  // Plugins configuration
+  plugins: [
+    [
+      '@docusaurus/plugin-google-gtag',
+      {
+        trackingID: 'G-XQN1D2KQXJ', // Replace with your actual Measurement ID
+        anonymizeIP: true, // Optional: anonymize IP addresses for privacy
+      },
+    ],
+  ],
+
   presets: [
     [
       'classic',
