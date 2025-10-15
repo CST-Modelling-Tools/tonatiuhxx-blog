@@ -47,8 +47,17 @@ const config = {
     [
       '@docusaurus/plugin-google-gtag',
       {
-        trackingID: 'G-XQN1D2KQXJ', // Replace with your actual Measurement ID
+        trackingID: 'G-XXXXXXXXXX', // Replace with your actual Measurement ID
         anonymizeIP: true, // Optional: anonymize IP addresses for privacy
+      },
+    ],
+    [
+      '@docusaurus/plugin-sitemap',
+      {
+        changefreq: 'weekly',
+        priority: 0.5,
+        ignorePatterns: ['/tags/**'],
+        filename: 'sitemap.xml',
       },
     ],
   ],
@@ -61,15 +70,28 @@ const config = {
         blog: {
           routeBasePath: '/', // Make blog the homepage
           showReadingTime: true,
-          blogTitle: 'Research Development Blog',
-          blogDescription: 'Development updates on CST optimization research',
+          blogTitle: 'Tonatiuh++ Development Blog - Solar Ray Tracing Research',
+          blogDescription: 'Latest developments in Tonatiuh++, an advanced solar ray tracing software for analyzing concentrating solar power systems. Research updates, algorithms, and CST modeling insights.',
           postsPerPage: 10,
           blogSidebarTitle: 'Recent Posts',
           blogSidebarCount: 'ALL',
+          feedOptions: {
+            type: 'all',
+            title: 'Tonatiuh++ Development Blog',
+            description: 'Latest developments in solar ray tracing and CST optimization research',
+            copyright: `Copyright © ${new Date().getFullYear()} TonatiuhXX Development`,
+            language: 'en',
+          },
         },
         docs: false, // Disable docs section for now,
         theme: {
           customCss: './src/css/custom.css',
+        },
+        sitemap: {
+          changefreq: 'weekly',
+          priority: 0.5,
+          ignorePatterns: ['/tags/**'],
+          filename: 'sitemap.xml',
         },
       }),
     ],
@@ -78,6 +100,15 @@ const config = {
   themeConfig:
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
+      // SEO metadata
+      metadata: [
+        {name: 'keywords', content: 'solar energy, ray tracing, CST, concentrating solar power, Tonatiuh, optical simulation, renewable energy, solar research'},
+        {name: 'author', content: 'Manuel Blanco'},
+        {name: 'description', content: 'Development blog for Tonatiuh++, advanced solar ray tracing software for concentrating solar power systems'},
+        {property: 'og:type', content: 'website'},
+        {property: 'og:site_name', content: 'Tonatiuh++ Development Blog'},
+        {name: 'twitter:card', content: 'summary_large_image'},
+      ],
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
@@ -86,7 +117,7 @@ const config = {
       navbar: {
         title: 'Tonatiuh++ Development Blog',
         logo: {
-          alt: 'CST Research Logo',
+          alt: 'Tonatiuh++ Solar Ray Tracing Software Logo',
           src: 'img/logo.svg',
         },
         items: [
