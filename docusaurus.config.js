@@ -81,8 +81,24 @@ const config = {
         sitemap: {
           changefreq: 'weekly',
           priority: 0.5,
-          ignorePatterns: ['/tags/**'],
+          ignorePatterns: ['/tags/**'], // This excludes tag pages, which is fine
           filename: 'sitemap.xml',
+          // Add custom priority for different page types
+          createSitemapItems: async (params) => {
+            const {defaultCreateSitemapItems, ...rest} = params;
+            const items = await defaultCreateSitemapItems(rest);
+            return items.map((item) => {
+              // Give blog posts higher priority
+              if (item.url.includes('/welcome') || (!item.url.includes('/tags') && !item.url.includes('/archive') && item.url !== rest.siteConfig.url + rest.siteConfig.baseUrl)) {
+                return {...item, priority: 0.7, changefreq: 'daily'};
+              }
+              // Homepage gets highest priority
+              if (item.url === rest.siteConfig.url + rest.siteConfig.baseUrl) {
+                return {...item, priority: 1.0, changefreq: 'daily'};
+              }
+              return item;
+            });
+          },
         },
       }),
     ],
