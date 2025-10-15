@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunktonatiuhxx_blog=globalThis.webpackChunktonatiuhxx_blog||[]).push([[903],{1912:a=>{a.exports=JSON.parse('{"blogBasePath":"/tonatiuhxx-blog/","blogTitle":"Tonatiuh++ Development Blog - Solar Ray Tracing Research","authorsListPath":"/tonatiuhxx-blog/authors"}')}}]);

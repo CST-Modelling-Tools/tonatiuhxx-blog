@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunktonatiuhxx_blog=globalThis.webpackChunktonatiuhxx_blog||[]).push([[402],{7151:e=>{e.exports=JSON.parse('{"metadata":{"permalink":"/tonatiuhxx-blog/","page":1,"postsPerPage":10,"totalPages":1,"totalCount":1,"blogDescription":"Development updates on CST optimization research","blogTitle":"Research Development Blog"}}')}}]);

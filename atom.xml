@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog</id>
-    <title>Tonatiuh++ Development Blog Blog</title>
+    <title>Tonatiuh++ Development Blog</title>
     <updated>2025-10-14T00:00:00.000Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://CST-Modelling-Tools.github.io/tonatiuhxx-blog"/>
-    <subtitle>Tonatiuh++ Development Blog Blog</subtitle>
+    <subtitle>Latest developments in solar ray tracing and CST optimization research</subtitle>
     <icon>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/img/favicon.ico</icon>
+    <rights>Copyright © 2025 TonatiuhXX Development</rights>
     <entry>
         <title type="html"><![CDATA[Welcome to the Tonatiuh++ Development Blog]]></title>
-        <id>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/2025/10/14/welcome</id>
-        <link href="https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/2025/10/14/welcome"/>
+        <id>https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/welcome</id>
+        <link href="https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/welcome"/>
         <updated>2025-10-14T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[This blog documents the ongoing development and enhancement of Tonatiuh++, an advanced solar ray tracing software for analyzing the optical behaviour of concentrating solar power systems.]]></summary>
+        <summary type="html"><![CDATA[Introduction to the Tonatiuh++ Development Blog - documenting advances in this solar ray tracing software for concentrating solar thermal systems]]></summary>
         <content type="html"><![CDATA[<p>This blog documents the ongoing development and enhancement of Tonatiuh++, an advanced solar ray tracing software for analyzing the optical behaviour of concentrating solar power systems.</p>
-<h2 class="anchor anchorWithStickyNavbar_LWe7" id="about-tonatiuh">About Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhxx-blog/2025/10/14/welcome#about-tonatiuh" class="hash-link" aria-label="Direct link to About Tonatiuh++" title="Direct link to About Tonatiuh++" translate="no">​</a></h2>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="about-tonatiuh">About Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhxx-blog/welcome#about-tonatiuh" class="hash-link" aria-label="Direct link to About Tonatiuh++" title="Direct link to About Tonatiuh++" translate="no">​</a></h2>
 <p>Tonatiuh++ is an enhanced version of the Tonatiuh ray tracer with improvements in ray tracing algorithms, performance, and cross-platform support.</p>
 <p>More content coming soon!</p>]]></content>
         <author>
@@ -22,5 +23,10 @@
             <uri>https://github.com/CST-Modelling-Tools</uri>
         </author>
         <category label="Welcome" term="Welcome"/>
+        <category label="tonatiuh" term="tonatiuh"/>
+        <category label="solar-energy" term="solar-energy"/>
+        <category label="ray-tracing" term="ray-tracing"/>
+        <category label="cst" term="cst"/>
+        <category label="csp" term="csp"/>
     </entry>
 </feed>

@@ -1,0 +1,28 @@
+{
+    "version": "https://jsonfeed.org/version/1",
+    "title": "Tonatiuh++ Development Blog",
+    "home_page_url": "https://CST-Modelling-Tools.github.io/tonatiuhxx-blog",
+    "description": "Latest developments in solar ray tracing and CST optimization research",
+    "items": [
+        {
+            "id": "https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/welcome",
+            "content_html": "<p>This blog documents the ongoing development and enhancement of Tonatiuh++, an advanced solar ray tracing software for analyzing the optical behaviour of concentrating solar power systems.</p>\n<h2 class=\"anchor anchorWithStickyNavbar_LWe7\" id=\"about-tonatiuh\">About Tonatiuh++<a href=\"https://cst-modelling-tools.github.io/tonatiuhxx-blog/welcome#about-tonatiuh\" class=\"hash-link\" aria-label=\"Direct link to About Tonatiuh++\" title=\"Direct link to About Tonatiuh++\" translate=\"no\">​</a></h2>\n<p>Tonatiuh++ is an enhanced version of the Tonatiuh ray tracer with improvements in ray tracing algorithms, performance, and cross-platform support.</p>\n<p>More content coming soon!</p>",
+            "url": "https://CST-Modelling-Tools.github.io/tonatiuhxx-blog/welcome",
+            "title": "Welcome to the Tonatiuh++ Development Blog",
+            "summary": "Introduction to the Tonatiuh++ Development Blog - documenting advances in this solar ray tracing software for concentrating solar thermal systems",
+            "date_modified": "2025-10-14T00:00:00.000Z",
+            "author": {
+                "name": "Manuel Blanco",
+                "url": "https://github.com/CST-Modelling-Tools"
+            },
+            "tags": [
+                "Welcome",
+                "tonatiuh",
+                "solar-energy",
+                "ray-tracing",
+                "cst",
+                "csp"
+            ]
+        }
+    ]
+}

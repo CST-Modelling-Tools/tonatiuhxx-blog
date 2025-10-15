@@ -1,1 +1,0 @@
-"use strict";(globalThis.webpackChunktonatiuhxx_blog=globalThis.webpackChunktonatiuhxx_blog||[]).push([[903],{1912:t=>{t.exports=JSON.parse('{"blogBasePath":"/tonatiuhxx-blog/","blogTitle":"Research Development Blog","authorsListPath":"/tonatiuhxx-blog/authors"}')}}]);
