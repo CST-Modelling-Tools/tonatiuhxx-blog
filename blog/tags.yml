@@ -1,4 +1,29 @@
+tonatiuh:
+  label: 'Tonatiuh'
+  description: 'Posts about Tonatiuh++ software development'
+  permalink: '/tonatiuh'
+
+solar-energy:
+  label: 'Solar Energy'
+  description: 'Solar energy research and developments'
+  permalink: '/solar-energy'
+
+ray-tracing:
+  label: 'Ray Tracing'
+  description: 'Ray tracing algorithms and techniques'
+  permalink: '/ray-tracing'
+
+cst:
+  label: 'CST'
+  description: 'Concentrating Solar Thermal systems'
+  permalink: '/cst'
+
+csp:
+  label: 'CSP'
+  description: 'Concentrating Solar Power'
+  permalink: '/csp'
+
 welcome:
-  label: Welcome
-  permalink: /tags/welcome
-  description: Posts introducing the Tonatiuh++ development blog.
+  label: 'Welcome'
+  description: 'Welcome and introductory posts'
+  permalink: '/welcome'
