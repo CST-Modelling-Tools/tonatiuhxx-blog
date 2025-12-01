@@ -28,3 +28,19 @@
   --ifm-color-primary-lightest: #4fddbf;
   --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
 }
+
+.funding-block {
+  max-width: 350px;
+}
+
+.funding-logos {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 0.4rem;
+}
+
+.funding-logos img {
+  height: 100px;
+  object-fit: contain;
+}

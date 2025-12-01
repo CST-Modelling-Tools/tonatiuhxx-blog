@@ -169,8 +169,33 @@ const config = {
               },
             ],
           },
+
+          // -------------------------------------
+          // 🆕 Funding section (ONE LOGO VERSION)
+          // -------------------------------------
+          {
+            title: 'Funding',
+            items: [
+              {
+                html: `
+                  <div class="funding-block">
+                    <p class="funding-text">
+                      The <strong>Tonatiuh++ Development Blog</strong> is part of the project:
+                      <em>"Towards disruptive innovation in advanced solar energy systems through artificial intelligence and high performance computing."</em></p>
+                    <p>  Grant ATR2024-155003 funded by:<br/>
+                    <img class="funding-logo" src="/tonatiuhxx-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
+                    </p>
+                  </div>
+                `
+              },
+            ],
+          },
         ],
-        copyright: `Copyright © ${new Date().getFullYear()} TonatiuhXX Development. Built with Docusaurus.`,
+
+        copyright: `Copyright © ${new Date().getFullYear()} Tonatiuh++ Project. Free and Open Source Software. 
+        Documentation licensed under 
+        <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. 
+        Built with Docusaurus.`,
       },
       prism: {
         theme: prismThemes.github,
