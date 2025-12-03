@@ -67,7 +67,7 @@ h1,
   color: var(--tonatiuh-dark) !important;
 }
 
-/* Section titles */
+/* Section titles (non-markdown generic) */
 h2 {
   font-weight: 500 !important;
   color: var(--tonatiuh-dark) !important;
@@ -77,6 +77,26 @@ h2 {
 .markdown p,
 p {
   line-height: 1.6;
+}
+
+/* ----------------------------------------------------------- */
+/* Fix heading hierarchy inside blog post markdown content     */
+/* ----------------------------------------------------------- */
+
+.markdown h2 {
+  font-size: 1.45rem !important;     /* clearly larger than h3 */
+  font-weight: 600 !important;
+  color: var(--tonatiuh-dark) !important;
+  margin-top: 1.6rem !important;
+  margin-bottom: 0.6rem !important;
+}
+
+.markdown h3 {
+  font-size: 1.2rem !important;      /* smaller than h2 */
+  font-weight: 550 !important;
+  color: var(--tonatiuh-dark) !important;
+  margin-top: 1.3rem !important;
+  margin-bottom: 0.5rem !important;
 }
 
 /* ------------------------ */
@@ -132,17 +152,6 @@ p {
 /* --------------------------------- */
 /* 4) Funding blocks (footer, etc.)  */
 /* --------------------------------- */
-
-/* Old announcement bar helpers (kept in case you reuse it) */
-@media (max-width: 600px) {
-  .funding-bar {
-    flex-direction: column;
-  }
-
-  .funding-bar-logo {
-    height: 28px;
-  }
-}
 
 /* Footer funding text block */
 .funding-block {
@@ -252,4 +261,41 @@ main .markdown > h1:first-child {
 .blogPostMeta .avatar__link svg {
   width: 20px !important;
   height: 20px !important;
+}
+
+/* ----------------------------------------------------------- */
+/* Force smaller blog list titles everywhere (homepage, tags)  */
+/* ----------------------------------------------------------- */
+
+/* General blog clickable title */
+.blog-post-title,
+.blog-post-title a,
+.blog-post-title a:hover {
+  font-size: 1.25rem !important;  /* smaller than default */
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+  color: var(--tonatiuh-dark) !important;
+  text-decoration: none !important;
+}
+
+/* Blog list pages (home/blog) sometimes wrap title differently */
+.blog-list-page h2,
+.blog-list-page h2 a {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* Inside cards or grid layouts (used by Docusaurus automatically) */
+article h2,
+article h2 a {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  line-height: 1.3 !important;
+}
+
+/* Reduce spacing above/below the title for a compact layout */
+.blog-post-title {
+  margin-top: 0.4rem !important;
+  margin-bottom: 0.3rem !important;
 }
