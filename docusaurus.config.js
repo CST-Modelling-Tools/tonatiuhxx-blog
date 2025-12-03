@@ -62,14 +62,16 @@ const config = {
           routeBasePath: '/', // Make blog the homepage
           showReadingTime: true,
           blogTitle: 'Tonatiuh++ Development Blog - Solar Ray Tracing Research',
-          blogDescription: 'Latest developments in Tonatiuh++, an advanced solar ray tracing software for analyzing concentrating solar power systems. Research updates, algorithms, and CST modeling insights.',
+          blogDescription:
+            'Latest developments in Tonatiuh++, an advanced solar ray tracing software for analyzing concentrating solar power systems. Research updates, algorithms, and CST modeling insights.',
           postsPerPage: 10,
           blogSidebarTitle: 'Recent Posts',
           blogSidebarCount: 'ALL',
           feedOptions: {
             type: 'all',
             title: 'Tonatiuh++ Development Blog',
-            description: 'Latest developments in solar ray tracing and CST optimization research',
+            description:
+              'Latest developments in solar ray tracing and CST optimization research',
             copyright: `Copyright © ${new Date().getFullYear()} TonatiuhXX Development`,
             language: 'en',
           },
@@ -89,7 +91,12 @@ const config = {
             const items = await defaultCreateSitemapItems(rest);
             return items.map((item) => {
               // Give blog posts higher priority
-              if (item.url.includes('/welcome') || (!item.url.includes('/tags') && !item.url.includes('/archive') && item.url !== rest.siteConfig.url + rest.siteConfig.baseUrl)) {
+              if (
+                item.url.includes('/welcome') ||
+                (!item.url.includes('/tags') &&
+                  !item.url.includes('/archive') &&
+                  item.url !== rest.siteConfig.url + rest.siteConfig.baseUrl)
+              ) {
                 return {...item, priority: 0.7, changefreq: 'daily'};
               }
               // Homepage gets highest priority
@@ -109,18 +116,28 @@ const config = {
     ({
       // SEO metadata
       metadata: [
-        {name: 'keywords', content: 'solar energy, ray tracing, CST, concentrating solar power, Tonatiuh, optical simulation, renewable energy, solar research'},
+        {
+          name: 'keywords',
+          content:
+            'solar energy, ray tracing, CST, concentrating solar power, Tonatiuh, optical simulation, renewable energy, solar research',
+        },
         {name: 'author', content: 'Manuel Blanco'},
-        {name: 'description', content: 'Development blog for Tonatiuh++, advanced solar ray tracing software for concentrating solar power systems'},
+        {
+          name: 'description',
+          content:
+            'Development blog for Tonatiuh++, advanced solar ray tracing software for concentrating solar power systems',
+        },
         {property: 'og:type', content: 'website'},
         {property: 'og:site_name', content: 'Tonatiuh++ Development Blog'},
         {name: 'twitter:card', content: 'summary_large_image'},
       ],
+
       // Replace with your project's social card
       image: 'img/docusaurus-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
+
       navbar: {
         title: 'Tonatiuh++ Development Blog',
         logo: {
@@ -128,6 +145,25 @@ const config = {
           src: 'img/logo.svg',
         },
         items: [
+          // Funding block: logically "left", visually centered with CSS
+          {
+            type: 'html',
+            position: 'left',
+            value: `
+              <div class="navbar-funding-center">
+                <span class="navbar-funding-center-text">
+                  Grant ATR2024-155003 funded by:
+                </span>
+                <img
+                  src="/tonatiuhxx-blog/img/MICIU_AEI.jpg"
+                  alt="MICIU &amp; AEI logo"
+                  class="navbar-funding-center-logo"
+                />
+              </div>
+            `,
+          },
+
+          // GitHub link on the right
           {
             href: 'https://github.com/CST-Modelling-Tools/tonatiuhxx-blog',
             label: 'GitHub',
@@ -135,6 +171,7 @@ const config = {
           },
         ],
       },
+
       footer: {
         style: 'dark',
         links: [
@@ -170,9 +207,7 @@ const config = {
             ],
           },
 
-          // -------------------------------------
-          // 🆕 Funding section (ONE LOGO VERSION)
-          // -------------------------------------
+          // Funding section in the footer
           {
             title: 'Funding',
             items: [
@@ -181,12 +216,14 @@ const config = {
                   <div class="funding-block">
                     <p class="funding-text">
                       The <strong>Tonatiuh++ Development Blog</strong> is part of the project:
-                      <em>"Towards disruptive innovation in advanced solar energy systems through artificial intelligence and high performance computing."</em></p>
-                    <p>  Grant ATR2024-155003 funded by:<br/>
-                    <img class="funding-logo" src="/tonatiuhxx-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
+                      <em>"Towards disruptive innovation in advanced solar energy systems through artificial intelligence and high performance computing."</em>
+                    </p>
+                    <p>
+                      Grant ATR2024-155003 funded by:<br/>
+                      <img class="funding-logo" src="/tonatiuhxx-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
                     </p>
                   </div>
-                `
+                `,
               },
             ],
           },
@@ -197,6 +234,7 @@ const config = {
         <a href="https://creativecommons.org/licenses/by/4.0/" target="_blank" rel="noopener noreferrer">CC BY 4.0</a>. 
         Built with Docusaurus.`,
       },
+
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
