@@ -248,7 +248,7 @@ main .markdown > h1:first-child {
   margin-top: 0.1rem;
 }
 
-/* Center the GitHub icon better */
+/* Center the GitHub icon better  */
 .blogPostMeta .avatar__link svg {
   width: 20px !important;
   height: 20px !important;
