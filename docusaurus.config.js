@@ -142,7 +142,7 @@ const config = {
         title: 'Tonatiuh++ Development Blog',
         logo: {
           alt: 'Tonatiuh++ Solar Ray Tracing Software Logo',
-          src: 'img/logo.svg',
+          src: 'img/tonatiuhxx-icon.png',
         },
         items: [
           // Funding block: logically "left", visually centered with CSS
