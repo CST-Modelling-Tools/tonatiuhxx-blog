@@ -133,7 +133,7 @@ const config = {
       ],
 
       // Replace with your project's social card
-      image: 'img/docusaurus-social-card.jpg',
+      image: 'img/tonatiuhxx-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -165,7 +165,7 @@ const config = {
 
           // GitHub link on the right
           {
-            href: 'https://github.com/CST-Modelling-Tools/tonatiuhxx-blog',
+            href: 'https://github.com/CST-Modelling-Tools/TonatiuhXX',
             label: 'GitHub',
             position: 'right',
           },
