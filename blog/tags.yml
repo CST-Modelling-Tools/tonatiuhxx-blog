@@ -42,3 +42,33 @@ development:
   label: 'Development'
   permalink: '/development'
   description: 'Technical notes and development updates for Tonatiuh++.'
+
+build:
+  label: Build
+  permalink: /build
+  description: Posts about building Tonatiuh++ from source on different platforms.
+
+overview:
+  label: Overview
+  permalink: /overview
+  description: High-level guides and conceptual overviews related to Tonatiuh++.
+
+windows:
+  label: Windows
+  permalink: /windows
+  description: Posts about building and running Tonatiuh++ on Windows.
+
+linux:
+  label: Linux
+  permalink: /linux
+  description: Posts about building and running Tonatiuh++ on Linux.
+
+ubuntu:
+  label: Ubuntu
+  permalink: /ubuntu
+  description: Posts specifically targeting Ubuntu-based setups.
+
+macos:
+  label: macOS
+  permalink: /macos
+  description: Posts about building and running Tonatiuh++ on macOS.
