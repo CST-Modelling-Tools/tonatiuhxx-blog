@@ -169,34 +169,34 @@ cd TonatiuhXX</p>
 </ul>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-qt-6">3. Qt 6<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#3-qt-6" class="hash-link" aria-label="Direct link to 3. Qt 6" title="Direct link to 3. Qt 6" translate="no">​</a></h3>
 <p>Qt provides the graphical user interface and is required to build the Tonatiuh++ application. The build system assumes a Qt 6 installation available on the system.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-coin3d-and-soqt">4. Coin3D and SoQt<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#4-coin3d-and-soqt" class="hash-link" aria-label="Direct link to 4. Coin3D and SoQt" title="Direct link to 4. Coin3D and SoQt" translate="no">​</a></h3>
-<p>These libraries form the 3D graphics and interaction layer. They are built automatically as part of the Tonatiuh++ third-party dependency system.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-eigen">5. Eigen<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#5-eigen" class="hash-link" aria-label="Direct link to 5. Eigen" title="Direct link to 5. Eigen" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-eigen">4. Eigen<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#4-eigen" class="hash-link" aria-label="Direct link to 4. Eigen" title="Direct link to 4. Eigen" translate="no">​</a></h3>
 <p>A lightweight, header-only linear algebra library used extensively within the core ray-tracing algorithms.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-coin3d-and-soqt">5. Coin3D and SoQt<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#5-coin3d-and-soqt" class="hash-link" aria-label="Direct link to 5. Coin3D and SoQt" title="Direct link to 5. Coin3D and SoQt" translate="no">​</a></h3>
+<p>These libraries form the 3D graphics and interaction layer. They are built automatically as part of the Tonatiuh++ third-party dependency system.</p>
+<p>Coin3D have been modified specifically for Tonatiuh++. Thus, it should be build from the <a href="https://github.com/CST-Modelling-Tools/coin4tonatiuhpp" target="_blank" rel="noopener noreferrer" class="">coin4tonatiuhpp</a> repository of the CST-Modelling-Tools GitHub organization and not from the original repository of the Coin3D softare.</p>
 <p>All third-party dependencies except Qt are built using an automated Python script included in the source tree.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="the-build-workflow-in-summary">The Build Workflow in Summary<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#the-build-workflow-in-summary" class="hash-link" aria-label="Direct link to The Build Workflow in Summary" title="Direct link to The Build Workflow in Summary" translate="no">​</a></h2>
 <p>Regardless of platform, building Tonatiuh++ follows the same conceptual workflow:</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-clone-the-repository">1. Clone the repository<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#1-clone-the-repository" class="hash-link" aria-label="Direct link to 1. Clone the repository" title="Direct link to 1. Clone the repository" translate="no">​</a></h3>
-<p>git clone <a href="https://github.com/CST-Modelling-Tools/TonatiuhXX.git" target="_blank" rel="noopener noreferrer" class="">https://github.com/CST-Modelling-Tools/TonatiuhXX.git</a>
-cd TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">cd</span><span class="token plain"> tonatiuhpp</span><br></span></code></pre></div></div>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-build-third-party-dependencies">2. Build third-party dependencies<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#2-build-third-party-dependencies" class="hash-link" aria-label="Direct link to 2. Build third-party dependencies" title="Direct link to 2. Build third-party dependencies" translate="no">​</a></h3>
 <p>The script <code>build_deps.py</code> automates the process of building Coin3D, SoQt, simage, and other dependencies.</p>
-<p>python3 build_deps.py</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python3 build_deps.py</span><br></span></code></pre></div></div>
 <p>This step may take some time depending on the system.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-configure-the-build-with-cmake">3. Configure the build with CMake<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#3-configure-the-build-with-cmake" class="hash-link" aria-label="Direct link to 3. Configure the build with CMake" title="Direct link to 3. Configure the build with CMake" translate="no">​</a></h3>
-<p>cmake -B build -S source -DCMAKE_BUILD_TYPE=Release</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_BUILD_TYPE</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">Release</span><br></span></code></pre></div></div>
 <p>On Windows, CMake will use the Visual Studio 2022 generator automatically.</p>
 <h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-build-tonatiuh">4. Build Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#4-build-tonatiuh" class="hash-link" aria-label="Direct link to 4. Build Tonatiuh++" title="Direct link to 4. Build Tonatiuh++" translate="no">​</a></h3>
-<p>cmake --build build --config Release</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release</span><br></span></code></pre></div></div>
 <p>The final executable will be available under the <code>build/application/</code> directory.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="platform-specific-guides">Platform-Specific Guides<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#platform-specific-guides" class="hash-link" aria-label="Direct link to Platform-Specific Guides" title="Direct link to Platform-Specific Guides" translate="no">​</a></h2>
 <p>Because each operating system has its own package managers, compiler conventions, and environment variables, the following posts provide in-depth instructions for each case:</p>
 <ul>
-<li class=""><strong>How to build Tonatiuh++ from source on Windows 11</strong></li>
-<li class=""><strong>How to build Tonatiuh++ from source on Ubuntu Linux</strong></li>
-<li class=""><strong>How to build Tonatiuh++ from source on macOS</strong></li>
+<li class=""><strong><a class="" href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows">How to build Tonatiuh++ from source on Windows 11</a></strong></li>
+<li class=""><strong><a class="" href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-linux">How to build Tonatiuh++ from source on Ubuntu Linux</a></strong></li>
+<li class=""><strong><a class="" href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-macos">How to build Tonatiuh++ from source on macOS</a></strong></li>
 </ul>
 <p>These platform-specific posts cover:</p>
 <ul>
@@ -210,10 +210,10 @@ cd TonatiuhXX</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="looking-ahead">Looking Ahead<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-overview#looking-ahead" class="hash-link" aria-label="Direct link to Looking Ahead" title="Direct link to Looking Ahead" translate="no">​</a></h2>
 <p>As Tonatiuh++ development accelerates, one of the key goals is to streamline the build process even further by:</p>
 <ul>
-<li class="">providing prebuilt installers,</li>
-<li class="">integrating continuous integration pipelines,</li>
-<li class="">improving platform packaging, and</li>
-<li class="">ensuring long-term reproducibility of builds.</li>
+<li class="">Providing prebuilt installers</li>
+<li class="">Integrating continuous integration pipelines</li>
+<li class="">Improving platform packaging</li>
+<li class="">Ensuring long-term reproducibility of builds</li>
 </ul>
 <p>In the meantime, building from source remains the most reliable way to obtain the latest version of Tonatiuh++ and participate in its development.</p>
 <hr>]]></content:encoded>
@@ -383,33 +383,21 @@ python --version</p>
 C:\Qt\6.x.x\msvc2022_64\</p>
 <p>You will need this path later.</p>
 <h1>3. Clone the Tonatiuh++ Repository</h1>
-<p>In a PowerShell or Git Bash terminal:
-git clone <a href="https://github.com/CST-Modelling-Tools/TonatiuhXX.git" target="_blank" rel="noopener noreferrer" class="">https://github.com/CST-Modelling-Tools/TonatiuhXX.git</a>
-cd TonatiuhXX</p>
+<p>In a PowerShell or Git Bash terminal:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">cd</span><span class="token plain"> tonatiuhpp</span><br></span></code></pre></div></div>
 <h1>4. Build Third-Party Dependencies</h1>
 <p>Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries.<br>
-<!-- -->These are built automatically with:
-python build_deps.py</p>
+<!-- -->These are built automatically with:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python build_deps.py</span><br></span></code></pre></div></div>
 <p>This may take several minutes.</p>
 <h1>5. Configure the Tonatiuh++ Build (CMake)</h1>
-<p>Run CMake configuration step:
-cmake -B build -S source ^
--DCMAKE_BUILD_TYPE=Release ^
--DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2022_64"</p>
+<p>Run CMake configuration step:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_BUILD_TYPE</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">Release </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_PREFIX_PATH</span><span class="token operator" style="color:#393A34">=</span><span class="token string" style="color:#e3116c">"C:/Qt/6.x.x/msvc2022_64"</span><br></span></code></pre></div></div>
 <p>Replace the Qt path with your actual installation directory.</p>
 <p>CMake will generate Visual Studio project files.</p>
 <h1>6. Build Tonatiuh++</h1>
-<p>cmake --build build --config Release</p>
-<p>The resulting executable will be in:
-build\application\Release\TonatiuhXX.exe</p>
-<h1>7. Optional: Open the Project in an IDE</h1>
-<p>Open in Visual Studio:
-cmake --open build</p>
-<p>Open folder in VS Code and install recommended extensions:</p>
-<ul>
-<li class="">CMake Tools</li>
-<li class="">C/C++</li>
-</ul>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release</span><br></span></code></pre></div></div>
+<p>The resulting executable will be in: build\application\Release\TonatiuhXX.exe</p>
 <h1>8. Troubleshooting</h1>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qt-not-found">Qt not found<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#qt-not-found" class="hash-link" aria-label="Direct link to Qt not found" title="Direct link to Qt not found" translate="no">​</a></h2>
 <p>Ensure correct prefix path:
@@ -417,20 +405,21 @@ cmake --open build</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="msvc-not-detected">MSVC not detected<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#msvc-not-detected" class="hash-link" aria-label="Direct link to MSVC not detected" title="Direct link to MSVC not detected" translate="no">​</a></h2>
 <p>Use “Developer PowerShell for VS 2022”.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="build_depspy-errors">build_deps.py errors<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#build_depspy-errors" class="hash-link" aria-label="Direct link to build_deps.py errors" title="Direct link to build_deps.py errors" translate="no">​</a></h2>
-<p>Make sure Python is 3.8+ and run:
-python -m pip install requests</p>
+<p>Make sure Python is 3.8+ and run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python </span><span class="token parameter variable" style="color:#36acaa">-m</span><span class="token plain"> pip </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> requests</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="missing-dlls-when-running-tonatiuh">Missing DLLs when running Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#missing-dlls-when-running-tonatiuh" class="hash-link" aria-label="Direct link to Missing DLLs when running Tonatiuh++" title="Direct link to Missing DLLs when running Tonatiuh++" translate="no">​</a></h2>
-<p>Run <code>windeployqt</code>:
-"C:\Qt\6.x.x\msvc2022_64\bin\windeployqt.exe" build\application\Release\TonatiuhXX.exe</p>
+<p>Run <code>windeployqt</code>:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">"C:\Qt</span><span class="token string entity" style="color:#36acaa">\6</span><span class="token string" style="color:#e3116c">.x.x\msvc2022_64</span><span class="token string entity" style="color:#36acaa">\b</span><span class="token string" style="color:#e3116c">in\windeployqt.exe"</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    build</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">application</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">Release</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">TonatiuhXX.exe</span><br></span></code></pre></div></div>
 <h1>Summary</h1>
 <p>To build Tonatiuh++ on Windows 11:</p>
 <ol>
-<li class="">Install Git, Python, MSVC Build Tools, and Qt.</li>
-<li class="">Clone the repository.</li>
-<li class="">Build third-party dependencies using build_deps.py.</li>
-<li class="">Configure and compile using CMake.</li>
+<li class="">Install Git, Python, MSVC Build Tools, and Qt</li>
+<li class="">Clone the repository</li>
+<li class="">Build third-party dependencies using build_deps.py</li>
+<li class="">Configure and compile using CMake</li>
 </ol>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="you-now-have-a-fully-working-windows-build-of-tonatiuh-ready-for-use-and-development">You now have a fully working Windows build of Tonatiuh++ ready for use and development.<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#you-now-have-a-fully-working-windows-build-of-tonatiuh-ready-for-use-and-development" class="hash-link" aria-label="Direct link to You now have a fully working Windows build of Tonatiuh++ ready for use and development." title="Direct link to You now have a fully working Windows build of Tonatiuh++ ready for use and development." translate="no">​</a></h2>]]></content:encoded>
+<p>You now have a fully working Windows build of Tonatiuh++ ready for use and development.</p>
+<hr>]]></content:encoded>
             <category>Windows</category>
             <category>Build</category>
             <category>Development</category>
