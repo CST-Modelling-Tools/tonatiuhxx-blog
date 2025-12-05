@@ -155,7 +155,7 @@ const config = {
                   Grant ATR2024-155003 funded by:
                 </span>
                 <img
-                  src="/img/MICIU_AEI.jpg"
+                  src="img/MICIU_AEI.jpg"
                   alt="MICIU &amp; AEI logo"
                   class="navbar-funding-center-logo"
                 />
