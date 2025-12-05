@@ -79,12 +79,9 @@ p {
   line-height: 1.6;
 }
 
-/* ----------------------------------------------------------- */
-/* Fix heading hierarchy inside blog post markdown content     */
-/* ----------------------------------------------------------- */
-
+/* Fix heading hierarchy inside blog post markdown content */
 .markdown h2 {
-  font-size: 1.45rem !important;     /* clearly larger than h3 */
+  font-size: 1.45rem !important;
   font-weight: 600 !important;
   color: var(--tonatiuh-dark) !important;
   margin-top: 1.6rem !important;
@@ -92,7 +89,7 @@ p {
 }
 
 .markdown h3 {
-  font-size: 1.2rem !important;      /* smaller than h2 */
+  font-size: 1.2rem !important;
   font-weight: 550 !important;
   color: var(--tonatiuh-dark) !important;
   margin-top: 1.3rem !important;
@@ -108,9 +105,7 @@ p {
   margin-left: 0.3rem;
 }
 
-/* Centered funding block in navbar (text + logo on one line) */
-
-/* Allow absolute centering of the block */
+/* Allow absolute centering of the funding block */
 .navbar__inner {
   position: relative;
 }
@@ -121,7 +116,6 @@ p {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-
   display: flex;
   flex-direction: row;        /* text and logo on the same line */
   align-items: center;
@@ -153,12 +147,10 @@ p {
 /* 4) Funding blocks (footer, etc.)  */
 /* --------------------------------- */
 
-/* Footer funding text block */
 .funding-block {
   max-width: 350px;
 }
 
-/* Generic horizontal logo row, if needed somewhere else */
 .funding-logos {
   display: flex;
   justify-content: flex-start;
@@ -221,7 +213,7 @@ main .markdown > h1:first-child {
 }
 
 /* --------------------------------------------------------- */
-/* Improved Author Card Styling (Tonatiuh++ blog aesthetic)  */
+/* Improved Author Card Styling                              */
 /* --------------------------------------------------------- */
 
 .blogPostMeta {
@@ -235,7 +227,6 @@ main .markdown > h1:first-child {
   gap: 1rem;
 }
 
-/* Avatar circle */
 .blogPostMeta .avatar__photo {
   width: 56px !important;
   height: 56px !important;
@@ -243,21 +234,18 @@ main .markdown > h1:first-child {
   border: 2px solid #ddd;
 }
 
-/* Author name */
 .blogPostMeta .avatar__name {
   font-size: 1.05rem !important;
   font-weight: 600 !important;
   color: var(--tonatiuh-dark) !important;
 }
 
-/* Subtitle (role / affiliation) */
 .blogPostMeta .avatar__subtitle {
   font-size: 0.9rem !important;
   color: #666 !important;
   margin-top: 0.1rem;
 }
 
-/* Center the GitHub icon better  */
 .blogPostMeta .avatar__link svg {
   width: 20px !important;
   height: 20px !important;
@@ -267,18 +255,16 @@ main .markdown > h1:first-child {
 /* Force smaller blog list titles everywhere (homepage, tags)  */
 /* ----------------------------------------------------------- */
 
-/* General blog clickable title */
 .blog-post-title,
 .blog-post-title a,
 .blog-post-title a:hover {
-  font-size: 1.25rem !important;  /* smaller than default */
+  font-size: 1.25rem !important;
   font-weight: 600 !important;
   line-height: 1.3 !important;
   color: var(--tonatiuh-dark) !important;
   text-decoration: none !important;
 }
 
-/* Blog list pages (home/blog) sometimes wrap title differently */
 .blog-list-page h2,
 .blog-list-page h2 a {
   font-size: 1.25rem !important;
@@ -286,7 +272,6 @@ main .markdown > h1:first-child {
   line-height: 1.3 !important;
 }
 
-/* Inside cards or grid layouts (used by Docusaurus automatically) */
 article h2,
 article h2 a {
   font-size: 1.25rem !important;
@@ -294,7 +279,6 @@ article h2 a {
   line-height: 1.3 !important;
 }
 
-/* Reduce spacing above/below the title for a compact layout */
 .blog-post-title {
   margin-top: 0.4rem !important;
   margin-bottom: 0.3rem !important;
@@ -313,7 +297,7 @@ article h2 a {
 }
 
 .markdown a:hover {
-  color: #e53935 !important; /* a bit brighter red on hover */
+  color: #e53935 !important;
 }
 
 /* -------------------------------------------- */
@@ -325,13 +309,13 @@ article h2 a {
   width: 100%;
   max-width: 900px;
   margin: 1.5rem auto;
-  aspect-ratio: 16 / 9;   /* reserve vertical space so text doesn't overlap */
-  overflow: hidden;       /* hide anything outside the frame */
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
 }
 
 .slideshow img {
   position: absolute;
-  inset: 0;               /* top:0; right:0; bottom:0; left:0; */
+  inset: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
@@ -358,3 +342,73 @@ article h2 a {
   40%  { opacity: 0; }
   100% { opacity: 0; }
 }
+
+/* -------------------------------------------------- */
+/* 8) Dark terminal-like styling for all code blocks  */
+/* -------------------------------------------------- */
+
+/* Make the outer container and pre/code dark */
+.theme-code-block,
+.theme-code-block pre,
+.theme-code-block code {
+  background-color: #000 !important; /* black background */
+  color: #e6e6e6 !important;         /* base light text */
+  border-radius: 8px;
+  padding: 0.75rem;
+}
+
+/* Ensure the inner Prism pre inherits correctly */
+.prism-code {
+  background-color: transparent !important;
+}
+
+/* -------------------------------------------------- */
+/* 9) Custom Prism token colors (VS Code–like)        */
+/* -------------------------------------------------- */
+
+/* Plain text (most of your shell commands) */
+.token.plain {
+  color: #e6e6e6 !important;
+}
+
+/* Comments */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: #7c7c7c !important;
+  font-style: italic;
+}
+
+/* Keywords (if, for, return, etc.) */
+.token.keyword {
+  color: #4ec9b0 !important;  /* teal/cyan */
+}
+
+/* Strings */
+.token.string {
+  color: #dcdcaa !important;  /* warm yellow */
+}
+
+/* Function names */
+.token.function {
+  color: #c586c0 !important;  /* purple */
+}
+
+/* Operators and punctuation */
+.token.operator,
+.token.punctuation {
+  color: #e6e6e6 !important;
+}
+
+/* Built-in commands and constants (e.g., git, cmake, python) */
+.token.builtin,
+.token.constant {
+  color: #9cdcfe !important;  /* soft blue */
+}
+
+/* Numbers */
+.token.number {
+  color: #b5cea8 !important;
+}
+

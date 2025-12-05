@@ -220,7 +220,7 @@ const config = {
                     </p>
                     <p>
                       Grant ATR2024-155003 funded by:<br/>
-                      <img class="funding-logo" src="/tonatiuhxx-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
+                      <img class="funding-logo" src="/tonatiuhpp-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
                     </p>
                   </div>
                 `,
@@ -238,6 +238,7 @@ const config = {
       prism: {
         theme: prismThemes.github,
         darkTheme: prismThemes.dracula,
+        additionalLanguages: ['bash', 'powershell'],
       },
     }),
 };

@@ -54,13 +54,15 @@ Tonatiuh++ requires a compiler with solid C++17 support. Examples include:
 
 Qt provides the graphical user interface and is required to build the Tonatiuh++ application. The build system assumes a Qt 6 installation available on the system.
 
-### 4. Coin3D and SoQt
+### 4. Eigen
+
+A lightweight, header-only linear algebra library used extensively within the core ray-tracing algorithms.
+
+### 5. Coin3D and SoQt
 
 These libraries form the 3D graphics and interaction layer. They are built automatically as part of the Tonatiuh++ third-party dependency system.
 
-### 5. Eigen
-
-A lightweight, header-only linear algebra library used extensively within the core ray-tracing algorithms.
+Coin3D have been modified specifically for Tonatiuh++. Thus, it should be build from the [coin4tonatiuhpp](https://github.com/CST-Modelling-Tools/coin4tonatiuhpp) repository of the CST-Modelling-Tools GitHub organization and not from the original repository of the Coin3D softare.
 
 All third-party dependencies except Qt are built using an automated Python script included in the source tree.
 
@@ -72,26 +74,33 @@ Regardless of platform, building Tonatiuh++ follows the same conceptual workflow
 
 ### 1. Clone the repository
 
-    git clone https://github.com/CST-Modelling-Tools/TonatiuhXX.git
-    cd TonatiuhXX
+```bash
+    git clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git
+    cd tonatiuhpp
+```
 
 ### 2. Build third-party dependencies
 
 The script `build_deps.py` automates the process of building Coin3D, SoQt, simage, and other dependencies.
 
+```bash
     python3 build_deps.py
+```    
 
 This step may take some time depending on the system.
 
 ### 3. Configure the build with CMake
 
+```bash
     cmake -B build -S source -DCMAKE_BUILD_TYPE=Release
-
+```
 On Windows, CMake will use the Visual Studio 2022 generator automatically.
 
 ### 4. Build Tonatiuh++
 
+```bash
     cmake --build build --config Release
+```
 
 The final executable will be available under the `build/application/` directory.
 
@@ -101,9 +110,9 @@ The final executable will be available under the `build/application/` directory.
 
 Because each operating system has its own package managers, compiler conventions, and environment variables, the following posts provide in-depth instructions for each case:
 
-- **How to build Tonatiuh++ from source on Windows 11**
-- **How to build Tonatiuh++ from source on Ubuntu Linux**
-- **How to build Tonatiuh++ from source on macOS**
+- **[How to build Tonatiuh++ from source on Windows 11](/tonatiuhpp-blog/build-windows)**
+- **[How to build Tonatiuh++ from source on Ubuntu Linux](/tonatiuhpp-blog/build-linux)**
+- **[How to build Tonatiuh++ from source on macOS](/tonatiuhpp-blog/build-macos)**
 
 These platform-specific posts cover:
 
@@ -119,10 +128,10 @@ These platform-specific posts cover:
 
 As Tonatiuh++ development accelerates, one of the key goals is to streamline the build process even further by:
 
-- providing prebuilt installers,  
-- integrating continuous integration pipelines,  
-- improving platform packaging, and  
-- ensuring long-term reproducibility of builds.
+- Providing prebuilt installers 
+- Integrating continuous integration pipelines 
+- Improving platform packaging
+- Ensuring long-term reproducibility of builds
 
 In the meantime, building from source remains the most reliable way to obtain the latest version of Tonatiuh++ and participate in its development.
 

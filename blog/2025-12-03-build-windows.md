@@ -49,23 +49,30 @@ You will need this path later.
 # 3. Clone the Tonatiuh++ Repository
 
 In a PowerShell or Git Bash terminal:
-    git clone https://github.com/CST-Modelling-Tools/TonatiuhXX.git
-    cd TonatiuhXX
 
+```bash
+    git clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git
+    cd tonatiuhpp
+```
 # 4. Build Third-Party Dependencies
 
 Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries.  
 These are built automatically with:
+
+```bash
     python build_deps.py
+```
 
 This may take several minutes.
 
 # 5. Configure the Tonatiuh++ Build (CMake)
 
 Run CMake configuration step:
-    cmake -B build -S source ^
-      -DCMAKE_BUILD_TYPE=Release ^
-      -DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2022_64"
+
+```bash
+    cmake -B build -S source -DCMAKE_BUILD_TYPE=Release 
+    -DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2022_64"
+```
 
 Replace the Qt path with your actual installation directory.
 
@@ -73,19 +80,11 @@ CMake will generate Visual Studio project files.
 
 # 6. Build Tonatiuh++
 
+```bash
     cmake --build build --config Release
+```
 
-The resulting executable will be in:
-    build\application\Release\TonatiuhXX.exe
-
-# 7. Optional: Open the Project in an IDE
-
-Open in Visual Studio:
-    cmake --open build
-
-Open folder in VS Code and install recommended extensions:
-- CMake Tools
-- C/C++
+The resulting executable will be in: build\application\Release\TonatiuhXX.exe
 
 # 8. Troubleshooting
 
@@ -98,20 +97,27 @@ Use “Developer PowerShell for VS 2022”.
 
 ## build_deps.py errors
 Make sure Python is 3.8+ and run:
+
+```bash
     python -m pip install requests
+```
 
 ## Missing DLLs when running Tonatiuh++
 Run `windeployqt`:
-    "C:\Qt\6.x.x\msvc2022_64\bin\windeployqt.exe" build\application\Release\TonatiuhXX.exe
 
+```bash
+    "C:\Qt\6.x.x\msvc2022_64\bin\windeployqt.exe" 
+    build\application\Release\TonatiuhXX.exe
+```
 # Summary
 
 To build Tonatiuh++ on Windows 11:
 
-1. Install Git, Python, MSVC Build Tools, and Qt.
-2. Clone the repository.
-3. Build third-party dependencies using build_deps.py.
-4. Configure and compile using CMake.
+1. Install Git, Python, MSVC Build Tools, and Qt
+2. Clone the repository
+3. Build third-party dependencies using build_deps.py
+4. Configure and compile using CMake
 
 You now have a fully working Windows build of Tonatiuh++ ready for use and development.
+
 ---
