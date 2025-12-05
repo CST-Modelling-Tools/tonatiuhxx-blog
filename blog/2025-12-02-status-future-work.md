@@ -5,6 +5,8 @@ authors: mblanco
 tags: [status, roadmap, development]
 ---
 
+![Tonatiuh++ roadmap symbolic image](/img/tonatiuhpp-roadmap.png)
+
 Tonatiuh++ began its development in **2018** within the framework of the *CySTEM ERA Chair* project at the Cyprus Institute. From the outset, it was conceived as a **Free and Open-Source Software (FOSS)** project and as an enhanced successor to the original Tonatiuh ray tracer.
 <!-- truncate -->
 The original Tonatiuh code has a long and diverse history. I first developed it under contract with NREL while serving as Director of the Engineering Department at the University of Texas at Brownsville in the United States. When I later returned to Spain and joined CENER—the National Renewable Energy Center—I continued its development while establishing and directing its Solar Thermal Department. After my departure from CENER to direct the Australian Solar Thermal Research Initiative at CSIRO in Australia, CENER continued leading Tonatiuh’s evolution, a role it still maintains today.

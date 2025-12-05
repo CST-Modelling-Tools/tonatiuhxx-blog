@@ -5,6 +5,12 @@ authors: mblanco
 tags: [build, development, overview]
 ---
 
+<div className="slideshow">
+  <img src="img/tonatiuhxx-windows-screenshot.png" alt="Tonatiuh++ on Windows" />
+  <img src="img/tonatiuhXX-ubuntu-linux-screenshot.png" alt="Tonatiuh++ on Linux" />
+  <img src="img/tonatiuhXX-apple-screenshot.png" alt="Tonatiuh++ on macOS" />
+</div>
+
 Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: **Windows 11**, **Linux**, and **macOS**.
 
 Because of this, the Tonatiuh++ build system has been deliberately structured to rely on open technologies—**CMake**, **C++17**, and widely available external libraries—ensuring that users and developers can compile the software directly from the source code regardless of their platform of choice.
