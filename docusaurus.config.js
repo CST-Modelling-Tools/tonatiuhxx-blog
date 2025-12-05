@@ -21,10 +21,10 @@ const config = {
 
   // Set the production url of your site here
   url: 'https://CST-Modelling-Tools.github.io',
-  baseUrl: '/tonatiuhxx-blog/',
+  baseUrl: '/tonatiuhpp-blog/',
   trailingSlash: false,
   organizationName: 'CST-Modelling-Tools',
-  projectName: 'tonatiuhxx-blog',
+  projectName: 'tonatiuhpp-blog',
   deploymentBranch: 'gh-pages',
 
   // GitHub pages deployment config.
