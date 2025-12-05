@@ -144,7 +144,8 @@ cd TonatiuhXX</p>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/build-overview"/>
         <updated>2025-12-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: Windows 11, Linux, and macOS.]]></summary>
-        <content type="html"><![CDATA[<p>Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: <strong>Windows 11</strong>, <strong>Linux</strong>, and <strong>macOS</strong>.</p>
+        <content type="html"><![CDATA[<div class="slideshow"><img src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/img/tonatiuhxx-windows-screenshot.png" alt="Tonatiuh++ on Windows"><img src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/img/tonatiuhXX-ubuntu-linux-screenshot.png" alt="Tonatiuh++ on Linux"><img src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/img/tonatiuhXX-apple-screenshot.png" alt="Tonatiuh++ on macOS"></div>
+<p>Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: <strong>Windows 11</strong>, <strong>Linux</strong>, and <strong>macOS</strong>.</p>
 <p>Because of this, the Tonatiuh++ build system has been deliberately structured to rely on open technologies—<strong>CMake</strong>, <strong>C++17</strong>, and widely available external libraries—ensuring that users and developers can compile the software directly from the source code regardless of their platform of choice.</p>
 <p>This post provides a <strong>general overview</strong> of the build process and the required components. Detailed step-by-step instructions for each operating system are provided in separate posts.</p>
 <hr>
@@ -454,8 +455,9 @@ python -m pip install requests</p>
         <id>https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/status-and-future-work</id>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/status-and-future-work"/>
         <updated>2025-12-02T00:00:00.000Z</updated>
-        <summary type="html"><![CDATA[Tonatiuh++ began its development in 2018 within the framework of the CySTEM ERA Chair project at the Cyprus Institute. From the outset, it was conceived as a Free and Open-Source Software (FOSS) project and as an enhanced successor to the original Tonatiuh ray tracer.]]></summary>
-        <content type="html"><![CDATA[<p>Tonatiuh++ began its development in <strong>2018</strong> within the framework of the <em>CySTEM ERA Chair</em> project at the Cyprus Institute. From the outset, it was conceived as a <strong>Free and Open-Source Software (FOSS)</strong> project and as an enhanced successor to the original Tonatiuh ray tracer.</p>
+        <summary type="html"><![CDATA[Tonatiuh++ roadmap symbolic image]]></summary>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ roadmap symbolic image" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhpp-roadmap-b31a422feabf5cb546178cf9c993111a.png" width="1996" height="1125" class="img_ev3q"></p>
+<p>Tonatiuh++ began its development in <strong>2018</strong> within the framework of the <em>CySTEM ERA Chair</em> project at the Cyprus Institute. From the outset, it was conceived as a <strong>Free and Open-Source Software (FOSS)</strong> project and as an enhanced successor to the original Tonatiuh ray tracer.</p>
 <p>The original Tonatiuh code has a long and diverse history. I first developed it under contract with NREL while serving as Director of the Engineering Department at the University of Texas at Brownsville in the United States. When I later returned to Spain and joined CENER—the National Renewable Energy Center—I continued its development while establishing and directing its Solar Thermal Department. After my departure from CENER to direct the Australian Solar Thermal Research Initiative at CSIRO in Australia, CENER continued leading Tonatiuh’s evolution, a role it still maintains today.</p>
 <hr>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="why-tonatiuh-was-created">Why Tonatiuh++ Was Created<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/status-and-future-work#why-tonatiuh-was-created" class="hash-link" aria-label="Direct link to Why Tonatiuh++ Was Created" title="Direct link to Why Tonatiuh++ Was Created" translate="no">​</a></h2>
@@ -502,9 +504,12 @@ python -m pip install requests</p>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/welcome"/>
         <updated>2025-10-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Introduction to the Tonatiuh++ Development Blog - documenting advances in this solar ray tracing software for concentrating solar thermal systems]]></summary>
-        <content type="html"><![CDATA[<p>This blog documents the ongoing development and enhancement of Tonatiuh++, an advanced solar ray tracing software for analyzing the optical behaviour of concentrating solar power systems.</p>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ logo" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhpp-logo-c93d17dc8b016fccd70dd97b73e183bf.png" width="1582" height="512" class="img_ev3q"></p>
+<p>This blog documents the ongoing development and enhancement of Tonatiuh++, an advanced solar ray tracing software for analyzing the optical behaviour of solar concentrators.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-tonatiuh">About Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/welcome#about-tonatiuh" class="hash-link" aria-label="Direct link to About Tonatiuh++" title="Direct link to About Tonatiuh++" translate="no">​</a></h2>
 <p>Tonatiuh++ is an enhanced version of the Tonatiuh ray tracer with improvements in ray tracing algorithms, performance, and cross-platform support.</p>
+<p>The source code can be found <a href="https://github.com/CST-Modelling-Tools/tonatiuhpp" target="_blank" rel="noopener noreferrer" class="">here</a>.</p>
+<p>The wiki providing information regarding capabilities and usage can be found <a href="https://github.com/CST-Modelling-Tools/tonatiuhpp/wiki" target="_blank" rel="noopener noreferrer" class="">here</a></p>
 <p>More content coming soon!</p>]]></content>
         <author>
             <name>Manuel Blanco</name>
