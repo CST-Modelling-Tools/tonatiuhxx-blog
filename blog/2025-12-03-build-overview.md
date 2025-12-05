@@ -7,8 +7,8 @@ tags: [build, development, overview]
 
 <div className="slideshow">
   <img src="img/tonatiuhxx-windows-screenshot.png" alt="Tonatiuh++ on Windows" />
+  <img src="img/tonatiuhxx-apple-screenshot.png" alt="Tonatiuh++ on macOS" />  
   <img src="img/tonatiuhxx-ubuntu-linux-screenshot.png" alt="Tonatiuh++ on Linux" />
-  <img src="img/tonatiuhxx-apple-screenshot.png" alt="Tonatiuh++ on macOS" />
 </div>
 
 Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: **Windows 11**, **Linux**, and **macOS**.
