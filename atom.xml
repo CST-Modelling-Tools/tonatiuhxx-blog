@@ -14,16 +14,16 @@
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/build-macos"/>
         <updated>2025-12-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Tonatiuh++ running on macOS]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ running on macOS" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhxx-apple-screenshot-f8744f7b85b25768ef6c9c4e49cd06fa.png" width="2000" height="1125" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ running on macOS" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhxx-apple-screenshot-01f57a69bb5ace9ee3c09c2520df595a.png" width="2000" height="1125" class="img_ev3q"></p>
 <p>macOS provides a clean and robust environment for building Tonatiuh++ thanks to its modern Clang compiler, strong UNIX foundations, and excellent package management through Homebrew. This guide describes the complete process for installing the necessary tools, building third-party dependencies, and compiling the Tonatiuh++ application on macOS Ventura, Sonoma, and newer.</p>
 <p>If Homebrew is not installed, open Terminal and run:</p>
-<p>/bin/bash -c "$(curl -fsSL <a href="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh" target="_blank" rel="noopener noreferrer" class="">https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</a>)"</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    /bin/bash </span><span class="token parameter variable" style="color:#36acaa">-c</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"</span><span class="token string variable" style="color:#36acaa">$(</span><span class="token string variable function" style="color:#d73a49">curl</span><span class="token string variable" style="color:#36acaa"> </span><span class="token string variable parameter variable" style="color:#36acaa">-fsSL</span><span class="token string variable" style="color:#36acaa"> https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh</span><span class="token string variable" style="color:#36acaa">)</span><span class="token string" style="color:#e3116c">"</span><br></span></code></pre></div></div>
 <p>After installation:</p>
-<p>brew update</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    brew update</span><br></span></code></pre></div></div>
 <p>Homebrew will be used to install CMake, Python, Qt6, and development libraries.</p>
 <h1>2. Install Required Development Tools</h1>
 <p>Install the essential compiler and developer tools:</p>
-<p>xcode-select --install</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    xcode-select </span><span class="token parameter variable" style="color:#36acaa">--install</span><br></span></code></pre></div></div>
 <p>This provides:</p>
 <ul>
 <li class="">Apple Clang (C++17 compliant)</li>
@@ -31,52 +31,44 @@
 <li class="">Build utilities</li>
 </ul>
 <p>Verify compiler:</p>
-<p>clang++ --version</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    clang++ </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
 <p>You should see Apple Clang 14 or newer.</p>
 <h1>3. Install Build Dependencies via Homebrew</h1>
 <p>Install core tools needed for building Tonatiuh++:</p>
-<p>brew install cmake git python3</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    brew </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> cmake </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> python3</span><br></span></code></pre></div></div>
 <p>Optional but recommended tools:</p>
-<p>brew install ninja pkg-config</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    brew </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> ninja pkg-config</span><br></span></code></pre></div></div>
 <p>Ninja speeds up the build process but is not required.</p>
 <h1>4. Install Qt 6</h1>
 <p>Tonatiuh++ requires Qt 6.x for its graphical interface.</p>
 <p>Install Qt via Homebrew:</p>
-<p>brew install qt@6</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    brew </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> qt@6</span><br></span></code></pre></div></div>
 <p>Qt will be installed at:</p>
 <p>/opt/homebrew/opt/qt@6        (Apple Silicon)
 /usr/local/opt/qt@6           (Intel Macs)</p>
 <p>Add Qt to your PATH for convenience:</p>
 <p>Apple Silicon:</p>
-<p>echo 'export PATH="/opt/homebrew/opt/qt@6/bin:$PATH"' &gt;&gt; ~/.zshrc
-source ~/.zshrc</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">echo</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'export PATH="/opt/homebrew/opt/qt@6/bin:$PATH"'</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">&gt;&gt;</span><span class="token plain"> ~/.zshrc</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">source</span><span class="token plain"> ~/.zshrc</span><br></span></code></pre></div></div>
 <p>Intel Macs:</p>
-<p>echo 'export PATH="/usr/local/opt/qt@6/bin:$PATH"' &gt;&gt; ~/.zshrc
-source ~/.zshrc</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">echo</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">'export PATH="/usr/local/opt/qt@6/bin:$PATH"'</span><span class="token plain"> </span><span class="token operator" style="color:#393A34">&gt;&gt;</span><span class="token plain"> ~/.zshrc</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">source</span><span class="token plain"> ~/.zshrc</span><br></span></code></pre></div></div>
 <p>Verify:</p>
-<p>qmake --version
-qtpaths --qt-version</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    qmake </span><span class="token parameter variable" style="color:#36acaa">--version</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    qtpaths --qt-version</span><br></span></code></pre></div></div>
 <h1>5. Clone the Tonatiuh++ Repository</h1>
 <p>Navigate to the folder where you want the source code:</p>
-<p>git clone <a href="https://github.com/CST-Modelling-Tools/TonatiuhXX.git" target="_blank" rel="noopener noreferrer" class="">https://github.com/CST-Modelling-Tools/TonatiuhXX.git</a>
-cd TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">cd</span><span class="token plain"> tonatiuhpp</span><br></span></code></pre></div></div>
 <h1>6. Build Third-Party Dependencies</h1>
-<p>Tonatiuh++ uses Coin3D, SoQt, simage, and other support libraries.<br>
-<!-- -->They are automatically built via:</p>
-<p>python3 build_deps.py</p>
+<p>Tonatiuh++ uses Coin3D, SoQt, simage, and other support libraries.</p>
+<p>They are automatically built via:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python3 build_deps.py</span><br></span></code></pre></div></div>
 <p>This may take time, especially on the first run.</p>
 <p>If you encounter network SSL issues while downloading sources:</p>
-<p>pip3 install --upgrade certifi</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    pip3 </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">--upgrade</span><span class="token plain"> certifi</span><br></span></code></pre></div></div>
 <h1>7. Configure the Build with CMake</h1>
 <p>On macOS, Qt installed via Homebrew is discovered using CMake’s CMAKE_PREFIX_PATH.</p>
 <p>Apple Silicon:</p>
-<p>cmake -B build -S source <br>
-<!-- -->-DCMAKE_BUILD_TYPE=Release <br>
-<!-- -->-DCMAKE_PREFIX_PATH="/opt/homebrew/opt/qt@6"</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_BUILD_TYPE</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">Release </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_PREFIX_PATH</span><span class="token operator" style="color:#393A34">=</span><span class="token string" style="color:#e3116c">"/opt/homebrew/opt/qt@6"</span><br></span></code></pre></div></div>
 <p>Intel Macs:</p>
-<p>cmake -B build -S source <br>
-<!-- -->-DCMAKE_BUILD_TYPE=Release <br>
-<!-- -->-DCMAKE_PREFIX_PATH="/usr/local/opt/qt@6"</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_BUILD_TYPE</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">Release </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_PREFIX_PATH</span><span class="token operator" style="color:#393A34">=</span><span class="token string" style="color:#e3116c">"/usr/local/opt/qt@6"</span><br></span></code></pre></div></div>
 <p>CMake should detect:</p>
 <ul>
 <li class="">Clang</li>
@@ -85,39 +77,39 @@ cd TonatiuhXX</p>
 </ul>
 <h1>8. Build Tonatiuh++</h1>
 <p>Compile:</p>
-<p>cmake --build build --config Release --parallel</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release </span><span class="token parameter variable" style="color:#36acaa">--parallel</span><br></span></code></pre></div></div>
 <p>The final application will appear in:</p>
-<p>build/application/TonatiuhXX.app</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    build/application/tonatiuhpp.app</span><br></span></code></pre></div></div>
 <p>You can launch it from Finder or by running:</p>
-<p>open build/application/TonatiuhXX.app</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">open</span><span class="token plain"> build/application/TonatiuhXX.app</span><br></span></code></pre></div></div>
 <h1>9. macOS Application Bundle Notes</h1>
-<p>macOS uses <code>.app</code> bundles that must include Qt plugins and frameworks.<br>
-<!-- -->If plugins are missing, you may see errors such as:</p>
+<p>macOS uses <code>.app</code> bundles that must include Qt plugins and frameworks.</p>
+<p>If plugins are missing, you may see errors such as:</p>
 <p>This application failed to start because no Qt platform plugin could be initialized.</p>
 <p>To fix this, use:</p>
-<p>macdeployqt build/application/TonatiuhXX.app</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    macdeployqt build/application/TonatiuhXX.app</span><br></span></code></pre></div></div>
 <p>macdeployqt is included with the Qt installation.</p>
 <h1>10. Troubleshooting</h1>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qt-not-found">Qt not found<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-macos#qt-not-found" class="hash-link" aria-label="Direct link to Qt not found" title="Direct link to Qt not found" translate="no">​</a></h2>
 <p>Check your Qt install location:</p>
 <p>Apple Silicon:</p>
-<p>ls /opt/homebrew/opt/qt@6/</p>
-<p>Intel:</p>
-<p>ls /usr/local/opt/qt@6/</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">ls</span><span class="token plain"> /opt/homebrew/opt/qt@6/</span><br></span></code></pre></div></div>
+<p>Apple Intel:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">ls</span><span class="token plain"> /usr/local/opt/qt@6/</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cmake-cannot-find-qt">CMake cannot find Qt<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-macos#cmake-cannot-find-qt" class="hash-link" aria-label="Direct link to CMake cannot find Qt" title="Direct link to CMake cannot find Qt" translate="no">​</a></h2>
 <p>Pass the explicit prefix path:</p>
-<p>-DCMAKE_PREFIX_PATH=/opt/homebrew/opt/qt@6</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_PREFIX_PATH</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">/opt/homebrew/opt/qt@6</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="missing-opengl-libraries">Missing OpenGL libraries<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-macos#missing-opengl-libraries" class="hash-link" aria-label="Direct link to Missing OpenGL libraries" title="Direct link to Missing OpenGL libraries" translate="no">​</a></h2>
 <p>Install:</p>
-<p>brew install mesa</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    brew </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> mesa</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="build_depspy-failures">build_deps.py failures<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-macos#build_depspy-failures" class="hash-link" aria-label="Direct link to build_deps.py failures" title="Direct link to build_deps.py failures" translate="no">​</a></h2>
 <p>Make sure <code>requests</code> is installed:</p>
-<p>pip3 install requests</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    pip3 </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> requests</span><br></span></code></pre></div></div>
 <p>And verify Python:</p>
-<p>python3 --version</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python3 </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="permission-errors">Permission errors<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-macos#permission-errors" class="hash-link" aria-label="Direct link to Permission errors" title="Direct link to Permission errors" translate="no">​</a></h2>
 <p>If needed:</p>
-<p>chmod +x build/application/TonatiuhXX.app/Contents/MacOS/TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">chmod</span><span class="token plain"> +x build/application/tonatiuhpp.app/Contents/MacOS/tonatiuhpp</span><br></span></code></pre></div></div>
 <h1>Summary</h1>
 <p>To build Tonatiuh++ on macOS:</p>
 <ol>
@@ -234,11 +226,10 @@ cd TonatiuhXX</p>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/build-linux"/>
         <updated>2025-12-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Tonatiuh++ running on Ubuntu Linux]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ running on Ubuntu Linux" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhXX-ubuntu-linux-screenshot-74af05ae17a4b6ac8b8488959d6eafea.png" width="1800" height="1125" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ running on Ubuntu Linux" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhXX-ubuntu-linux-screenshot-fa337b4c37cb0efca1ac39dbe1b691dc.png" width="1800" height="1125" class="img_ev3q"></p>
 <p>Ubuntu Linux provides an excellent environment for building Tonatiuh++ from source thanks to powerful package management tools, modern C++ compilers, and first-class CMake support. This guide explains how to install all necessary dependencies, compile third-party libraries, and build the full Tonatiuh++ application on Ubuntu 22.04 or later.</p>
 <p>Begin by installing essential development utilities:</p>
-<p>sudo apt update
-sudo apt install -y build-essential cmake git python3 python3-pip</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> update</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> build-essential cmake </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> python3 python3-pip</span><br></span></code></pre></div></div>
 <p>This installs:</p>
 <ul>
 <li class="">GCC/G++ (C++17 capable)</li>
@@ -248,28 +239,26 @@ sudo apt install -y build-essential cmake git python3 python3-pip</p>
 <li class="">Python (required for build_deps.py)</li>
 </ul>
 <p>Verify GCC:</p>
-<p>g++ --version</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    g++ </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
 <p>It should report GCC 11 or newer.</p>
 <h1>2. Install Qt 6</h1>
 <p>Ubuntu’s repositories include Qt 6, which works well for Tonatiuh++.</p>
 <p>Install the Qt development packages:</p>
-<p>sudo apt install -y qt6-base-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> qt6-base-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools</span><br></span></code></pre></div></div>
 <p>This installs:</p>
 <ul>
 <li class="">Qt 6 libraries</li>
 <li class="">qmake and Qt tools</li>
 <li class="">CMake integration files for Qt</li>
 </ul>
-<p>CMake will automatically detect Qt in:
-/usr/lib/x86_64-linux-gnu/cmake/Qt6/</p>
+<p>CMake will automatically detect Qt in: /usr/lib/x86_64-linux-gnu/cmake/Qt6/</p>
 <h1>3. Install Additional Dependencies</h1>
 <p>Tonatiuh++ builds most third-party dependencies itself, but a few system packages improve compatibility:</p>
-<p>sudo apt install -y libx11-dev libxt-dev libxext-dev libgl1-mesa-dev libglu1-mesa-dev</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> libx11-dev libxt-dev libxext-dev libgl1-mesa-dev libglu1-mesa-dev</span><br></span></code></pre></div></div>
 <p>These are required for Coin3D, SoQt, and OpenGL support.</p>
 <h1>4. Clone the Tonatiuh++ Repository</h1>
 <p>Choose a working folder and clone the source:</p>
-<p>git clone <a href="https://github.com/CST-Modelling-Tools/TonatiuhXX.git" target="_blank" rel="noopener noreferrer" class="">https://github.com/CST-Modelling-Tools/TonatiuhXX.git</a>
-cd TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">cd</span><span class="token plain"> tonatiuhpp</span><br></span></code></pre></div></div>
 <p>Project structure includes:</p>
 <ul>
 <li class=""><code>source/</code> – main code</li>
@@ -277,9 +266,9 @@ cd TonatiuhXX</p>
 <li class=""><code>CMakeLists.txt</code> – build configuration</li>
 </ul>
 <h1>5. Build Third-Party Dependencies</h1>
-<p>Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries.<br>
-<!-- -->These are compiled automatically using the provided script:</p>
-<p>python3 build_deps.py</p>
+<p>Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries.</p>
+<p>These are compiled automatically using the provided script:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python3 build_deps.py</span><br></span></code></pre></div></div>
 <p>This step:</p>
 <ul>
 <li class="">downloads sources</li>
@@ -290,8 +279,7 @@ cd TonatiuhXX</p>
 <p>It may take several minutes.</p>
 <h1>6. Configure the Tonatiuh++ Build with CMake</h1>
 <p>Create a build directory and run CMake:</p>
-<p>cmake -B build -S source <br>
-<!-- -->-DCMAKE_BUILD_TYPE=Release</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_BUILD_TYPE</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">Release</span><br></span></code></pre></div></div>
 <p>CMake will:</p>
 <ul>
 <li class="">detect GCC</li>
@@ -305,36 +293,35 @@ cd TonatiuhXX</p>
 </ul>
 <h1>7. Build the Application</h1>
 <p>Compile the project:</p>
-<p>cmake --build build --config Release --parallel</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release </span><span class="token parameter variable" style="color:#36acaa">--parallel</span><br></span></code></pre></div></div>
 <p>The final binary will be located at:</p>
-<p>build/application/TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    build/application/tonatiuhpp</span><br></span></code></pre></div></div>
 <p>Make it executable (if needed):</p>
-<p>chmod +x build/application/TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">chmod</span><span class="token plain"> +x build/application/TonatiuhXX</span><br></span></code></pre></div></div>
 <h1>8. Running Tonatiuh++ on Ubuntu</h1>
 <p>Execute directly:</p>
-<p>./build/application/TonatiuhXX</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    ./build/application/TonatiuhXX</span><br></span></code></pre></div></div>
 <p>If Qt plugins or shared libraries are missing, install:</p>
-<p>sudo apt install -y qt6-wayland qt6-svg-dev qt6-5compat-dev</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> qt6-wayland qt6-svg-dev qt6-5compat-dev</span><br></span></code></pre></div></div>
 <h1>9. Optional: Install OpenGL for Better Rendering</h1>
 <p>Most Ubuntu systems already include Mesa drivers, but if not:</p>
-<p>sudo apt install -y mesa-utils</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> mesa-utils</span><br></span></code></pre></div></div>
 <p>Test OpenGL:</p>
-<p>glxinfo | grep "OpenGL version"</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    glxinfo </span><span class="token operator" style="color:#393A34">|</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">grep</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"OpenGL version"</span><br></span></code></pre></div></div>
 <h1>10. Troubleshooting</h1>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qt6-not-found">Qt6 not found<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-linux#qt6-not-found" class="hash-link" aria-label="Direct link to Qt6 not found" title="Direct link to Qt6 not found" translate="no">​</a></h2>
 <p>Ensure Qt6 CMake files exist:</p>
-<p>ls /usr/lib/x86_64-linux-gnu/cmake/Qt6/</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">ls</span><span class="token plain"> /usr/lib/x86_64-linux-gnu/cmake/Qt6/</span><br></span></code></pre></div></div>
 <p>If missing, reinstall Qt packages.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="coin3d-or-soqt-build-failures">Coin3D or SoQt build failures<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-linux#coin3d-or-soqt-build-failures" class="hash-link" aria-label="Direct link to Coin3D or SoQt build failures" title="Direct link to Coin3D or SoQt build failures" translate="no">​</a></h2>
 <p>Install additional X11/OpenGL headers:</p>
-<p>sudo apt install -y libxmu-dev libxi-dev freeglut3-dev</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> libxmu-dev libxi-dev freeglut3-dev</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="cmake-cannot-find-python">CMake cannot find Python<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-linux#cmake-cannot-find-python" class="hash-link" aria-label="Direct link to CMake cannot find Python" title="Direct link to CMake cannot find Python" translate="no">​</a></h2>
 <p>Verify:</p>
-<p>python3 --version
-which python3</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python3 </span><span class="token parameter variable" style="color:#36acaa">--version</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">which</span><span class="token plain"> python3</span><br></span></code></pre></div></div>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="linking-errors-involving-gl-or-x11">Linking errors involving GL or X11<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-linux#linking-errors-involving-gl-or-x11" class="hash-link" aria-label="Direct link to Linking errors involving GL or X11" title="Direct link to Linking errors involving GL or X11" translate="no">​</a></h2>
 <p>Install missing components:</p>
-<p>sudo apt install -y libgl1-mesa-dev libglu1-mesa-dev libx11-dev libxt-dev</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">sudo</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">apt</span><span class="token plain"> </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-y</span><span class="token plain"> libgl1-mesa-dev libglu1-mesa-dev libx11-dev libxt-dev</span><br></span></code></pre></div></div>
 <h1>Summary</h1>
 <p>To build Tonatiuh++ on Ubuntu Linux:</p>
 <ol>
@@ -361,76 +348,324 @@ which python3</p>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/build-windows"/>
         <updated>2025-12-03T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Tonatiuh++ running on Windows 11]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ running on Windows 11" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhxx-windows-screenshot-0fb5c27d68a859480fdb6f9de857232e.png" width="1280" height="720" class="img_ev3q"></p>
-<p>Building Tonatiuh++ from source on Windows 11 requires installing several development tools, configuring Qt, building third-party dependencies, and finally compiling the application using CMake. This guide provides a complete, step-by-step workflow based on the Qt Online Installer, Visual Studio Build Tools, and the official Tonatiuh++ build scripts.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="11-install-git">1.1 Install Git<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#11-install-git" class="hash-link" aria-label="Direct link to 1.1 Install Git" title="Direct link to 1.1 Install Git" translate="no">​</a></h2>
-<p>Download: <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer" class="">https://git-scm.com/download/win</a><br>
-<!-- -->Choose: “Git from the command line and also from 3rd-party software”.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="12-install-python-3">1.2 Install Python 3<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#12-install-python-3" class="hash-link" aria-label="Direct link to 1.2 Install Python 3" title="Direct link to 1.2 Install Python 3" translate="no">​</a></h2>
-<p>Download: <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer" class="">https://www.python.org/downloads/windows/</a><br>
-<!-- -->During installation:</p>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ running on Windows 11" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhxx-windows-screenshot-126f94b4e4c8389bddb76437bd153c18.png" width="1280" height="720" class="img_ev3q"></p>
+<p>Building <strong>Tonatiuh++</strong> from source on <strong>Windows 11</strong> requires installing a small set of development tools and third-party libraries, building additional dependencies using the build scripts included in this repository, configuring the project with CMake, and finally installing it so that all runtime dependencies are correctly resolved.</p>
+<p>This guide describes a <strong>command-line–only workflow</strong>, without relying on IDE integration. All build steps are executed using the <strong>MSVC x64 toolchain</strong>.</p>
+<p>Before starting, make sure the following software is installed on your system:</p>
 <ul>
-<li class="">Check “Add Python to PATH”.</li>
+<li class=""><strong>Python ≥ 3.9</strong> (required to run the dependency build and diagnostic scripts)</li>
+<li class=""><strong>Git</strong> (required to clone the repository and fetch third-party sources)</li>
+<li class=""><strong>CMake ≥ 3.20</strong> (required to configure and build the project)</li>
+<li class=""><strong>Visual Studio Community Edition</strong> with the <strong>MSVC x64 C++ toolchain</strong></li>
+<li class=""><strong>Qt 6 (MSVC x64 build)</strong></li>
+<li class=""><strong>Eigen</strong> (header-only linear algebra library)</li>
+<li class=""><strong>Boost</strong> (C++ utility libraries)</li>
 </ul>
-<p>Verify installation:
-python --version</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="13-install-visual-studio-build-tools-msvc">1.3 Install Visual Studio Build Tools (MSVC)<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#13-install-visual-studio-build-tools-msvc" class="hash-link" aria-label="Direct link to 1.3 Install Visual Studio Build Tools (MSVC)" title="Direct link to 1.3 Install Visual Studio Build Tools (MSVC)" translate="no">​</a></h2>
-<p>Download: <a href="https://visualstudio.microsoft.com/visual-cpp-build-tools/" target="_blank" rel="noopener noreferrer" class="">https://visualstudio.microsoft.com/visual-cpp-build-tools/</a><br>
-<!-- -->Select workload:</p>
-<ul>
-<li class="">Desktop development with C++</li>
-<li class="">Windows 10/11 SDK</li>
-<li class="">(Optional) C++ CMake Tools for Windows</li>
-</ul>
-<h1>2. Install Qt 6 Using the Qt Online Installer</h1>
-<p>Download installer:<br>
-<a href="https://www.qt.io/download-qt-installer" target="_blank" rel="noopener noreferrer" class="">https://www.qt.io/download-qt-installer</a></p>
-<p>Choose:</p>
-<ul>
-<li class="">Qt 6.x (preferably latest LTS)</li>
-<li class="">Component: msvc2022_64</li>
-</ul>
-<p>Qt will be installed in:
-C:\Qt\6.x.x\msvc2022_64\</p>
-<p>You will need this path later.</p>
-<h1>3. Clone the Tonatiuh++ Repository</h1>
-<p>In a PowerShell or Git Bash terminal:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token builtin class-name">cd</span><span class="token plain"> tonatiuhpp</span><br></span></code></pre></div></div>
-<h1>4. Build Third-Party Dependencies</h1>
-<p>Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries.<br>
-<!-- -->These are built automatically with:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python build_deps.py</span><br></span></code></pre></div></div>
-<p>This may take several minutes.</p>
-<h1>5. Configure the Tonatiuh++ Build (CMake)</h1>
-<p>Run CMake configuration step:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_BUILD_TYPE</span><span class="token operator" style="color:#393A34">=</span><span class="token plain">Release </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token parameter variable" style="color:#36acaa">-DCMAKE_PREFIX_PATH</span><span class="token operator" style="color:#393A34">=</span><span class="token string" style="color:#e3116c">"C:/Qt/6.x.x/msvc2022_64"</span><br></span></code></pre></div></div>
-<p>Replace the Qt path with your actual installation directory.</p>
-<p>CMake will generate Visual Studio project files.</p>
-<h1>6. Build Tonatiuh++</h1>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release</span><br></span></code></pre></div></div>
-<p>The resulting executable will be in: build\application\Release\TonatiuhXX.exe</p>
-<h1>8. Troubleshooting</h1>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="qt-not-found">Qt not found<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#qt-not-found" class="hash-link" aria-label="Direct link to Qt not found" title="Direct link to Qt not found" translate="no">​</a></h2>
-<p>Ensure correct prefix path:
--DCMAKE_PREFIX_PATH="C:/Qt/6.x.x/msvc2022_64"</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="msvc-not-detected">MSVC not detected<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#msvc-not-detected" class="hash-link" aria-label="Direct link to MSVC not detected" title="Direct link to MSVC not detected" translate="no">​</a></h2>
-<p>Use “Developer PowerShell for VS 2022”.</p>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="build_depspy-errors">build_deps.py errors<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#build_depspy-errors" class="hash-link" aria-label="Direct link to build_deps.py errors" title="Direct link to build_deps.py errors" translate="no">​</a></h2>
-<p>Make sure Python is 3.8+ and run:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    python </span><span class="token parameter variable" style="color:#36acaa">-m</span><span class="token plain"> pip </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> requests</span><br></span></code></pre></div></div>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="missing-dlls-when-running-tonatiuh">Missing DLLs when running Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#missing-dlls-when-running-tonatiuh" class="hash-link" aria-label="Direct link to Missing DLLs when running Tonatiuh++" title="Direct link to Missing DLLs when running Tonatiuh++" translate="no">​</a></h2>
-<p>Run <code>windeployqt</code>:</p>
-<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">    </span><span class="token string" style="color:#e3116c">"C:\Qt</span><span class="token string entity" style="color:#36acaa">\6</span><span class="token string" style="color:#e3116c">.x.x\msvc2022_64</span><span class="token string entity" style="color:#36acaa">\b</span><span class="token string" style="color:#e3116c">in\windeployqt.exe"</span><span class="token plain"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">    build</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">application</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">Release</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">TonatiuhXX.exe</span><br></span></code></pre></div></div>
-<h1>Summary</h1>
-<p>To build Tonatiuh++ on Windows 11:</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-required-tools">Install required tools<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-required-tools" class="hash-link" aria-label="Direct link to Install required tools" title="Direct link to Install required tools" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-python-on-windows">Installing Python on Windows<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-python-on-windows" class="hash-link" aria-label="Direct link to Installing Python on Windows" title="Direct link to Installing Python on Windows" translate="no">​</a></h3>
+<p>Python is required to run the dependency build and diagnostic scripts used by Tonatiuh++.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-python">Install Python<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-python" class="hash-link" aria-label="Direct link to Install Python" title="Direct link to Install Python" translate="no">​</a></h4>
 <ol>
-<li class="">Install Git, Python, MSVC Build Tools, and Qt</li>
-<li class="">Clone the repository</li>
-<li class="">Build third-party dependencies using build_deps.py</li>
-<li class="">Configure and compile using CMake</li>
+<li class="">Download the official Windows installer from: <a href="https://www.python.org/downloads/windows/" target="_blank" rel="noopener noreferrer" class="">https://www.python.org/downloads/windows/</a></li>
 </ol>
-<p>You now have a fully working Windows build of Tonatiuh++ ready for use and development.</p>
-<hr>]]></content>
+<p><img decoding="async" loading="lazy" alt="Python download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/python-3-14-2-installation-01-f3d5ac72089884ab71fa1635548c56a2.jpeg" width="1914" height="1821" class="img_ev3q"></p>
+<ol start="2">
+<li class="">From the section "Stable Releases" Choose <strong>Python 3.9 or newer</strong> (64-bit) and download it using either "Python install manager" or "Windows installer (64 bit)".</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Python install manager" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/python-3-14-2-installation-02-e4ad221c84a6ef298c45d735081aac20.jpeg" width="979" height="787" class="img_ev3q"></p>
+<ol start="3">
+<li class="">Run the installer and <strong>enable the option “Add Python to PATH”</strong> before starting the installation.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Adding Python to the PATH" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/python-3-14-2-installation-03-da9c2979f85cab69b5d1e5332aff81c6.jpeg" width="1734" height="927" class="img_ev3q"></p>
+<ol start="4">
+<li class="">Complete the installation using the default options.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Finalizing Python installation with default options" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/python-3-14-2-installation-04-ea3bdb69bc6a12cca6cfa1aeb8f32573.jpeg" width="1734" height="1990" class="img_ev3q"></p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-installation">Verify the installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-installation" class="hash-link" aria-label="Direct link to Verify the installation" title="Direct link to Verify the installation" translate="no">​</a></h4>
+<p>Open a new <strong>Command Prompt</strong> or <strong>PowerShell</strong> window and run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
+<p>If Python is correctly installed, you should see an output similar to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Python 3.14.2</span><br></span></code></pre></div></div>
+<p>On some systems, Python may be invoked using <code>python3</code> instead:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python3 </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
+<p>If neither command is found, ensure that Python is installed and that its installation directory is included in your system <code>PATH</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-git-on-windows">Installing Git on Windows<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-git-on-windows" class="hash-link" aria-label="Direct link to Installing Git on Windows" title="Direct link to Installing Git on Windows" translate="no">​</a></h3>
+<p>Git is required to clone the Tonatiuh++ repository and to fetch third-party sources during the build process.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-git">Install Git<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-git" class="hash-link" aria-label="Direct link to Install Git" title="Direct link to Install Git" translate="no">​</a></h4>
+<ol>
+<li class="">Download the official Git for Windows installer from: <a href="https://git-scm.com/download/win" target="_blank" rel="noopener noreferrer" class="">https://git-scm.com/download/win</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Git download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/git-2-52-0-installation-01-2006a353b2e1fc06f3b2bbd935338eda.jpeg" width="1545" height="1296" class="img_ev3q"></p>
+<ol start="2">
+<li class="">Run the installer and follow the default installation options. The default settings are sufficient for building Tonatiuh++.</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Git installer first screen" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/git-2-52-0-installation-02-8c1af4a070618c18c4f85e34c82a7d26.jpeg" width="997" height="766" class="img_ev3q"></p>
+<ol start="3">
+<li class="">During installation, make sure that Git is added to your <strong>PATH</strong><br>
+<!-- -->(this is the default and recommended option).</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-installation-1">Verify the installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-installation-1" class="hash-link" aria-label="Direct link to Verify the installation" title="Direct link to Verify the installation" translate="no">​</a></h4>
+<p>Open a new <strong>Command Prompt</strong> or <strong>PowerShell</strong> window and run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token function" style="color:#d73a49">git</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
+<p>If Git is correctly installed, you should see an output similar to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git version 2.52.0.windows.1</span><br></span></code></pre></div></div>
+<p>If the command is not found, ensure that Git is installed and that its <code>bin</code> directory is included in your system <code>PATH</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-cmake-on-windows">Installing CMake on Windows<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-cmake-on-windows" class="hash-link" aria-label="Direct link to Installing CMake on Windows" title="Direct link to Installing CMake on Windows" translate="no">​</a></h3>
+<p>CMake is required to configure and build Tonatiuh++ and its third-party dependencies. A sufficiently recent version is mandatory.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-cmake">Install CMake<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-cmake" class="hash-link" aria-label="Direct link to Install CMake" title="Direct link to Install CMake" translate="no">​</a></h4>
+<ol>
+<li class="">Download the official Windows installer from: <a href="https://cmake.org/download/" target="_blank" rel="noopener noreferrer" class="">https://cmake.org/download/</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="CMake download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/cmake-4-2-1-installation-01-ea9f5583f69073eb092d698277b8d3ee.jpeg" width="1915" height="2023" class="img_ev3q"></p>
+<ol start="2">
+<li class="">Choose the <strong>Windows x64 Installer</strong> (<code>cmake-&lt;version&gt;-windows-x86_64.msi</code>).</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="CMake installer first screen" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/cmake-4-2-1-installation-02-da7e98cb6cf32b2e94e8fcf133ca18f2.jpeg" width="774" height="601" class="img_ev3q"></p>
+<ol start="3">
+<li class="">
+<p>Run the installer and follow the default installation options.</p>
+</li>
+<li class="">
+<p>When prompted, select the option to <strong>add CMake to the system PATH for all users</strong><br>
+<!-- -->(or at least for the current user).</p>
+</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-installation-2">Verify the installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-installation-2" class="hash-link" aria-label="Direct link to Verify the installation" title="Direct link to Verify the installation" translate="no">​</a></h4>
+<p>Open a new <strong>Command Prompt</strong> or <strong>PowerShell</strong> window and run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
+<p>If CMake is correctly installed, the first line of the output should indicate a version <strong>greater than or equal to 3.20</strong>, for example:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake version 4.2.1</span><br></span></code></pre></div></div>
+<p>If the command is not found, ensure that CMake is installed and that its installation directory is included in your system <code>PATH</code>.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-visual-studio-community-edition-msvc-x64">Installing Visual Studio Community Edition (MSVC x64)<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-visual-studio-community-edition-msvc-x64" class="hash-link" aria-label="Direct link to Installing Visual Studio Community Edition (MSVC x64)" title="Direct link to Installing Visual Studio Community Edition (MSVC x64)" translate="no">​</a></h3>
+<p>Visual Studio Community Edition provides the <strong>Microsoft Visual C++ (MSVC) x64 toolchain</strong>, which is required to compile Tonatiuh++ and all native third-party dependencies on Windows.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-visual-studio-community-edition">Install Visual Studio Community Edition<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-visual-studio-community-edition" class="hash-link" aria-label="Direct link to Install Visual Studio Community Edition" title="Direct link to Install Visual Studio Community Edition" translate="no">​</a></h4>
+<ol>
+<li class="">Download the installer from the official Visual Studio website: <a href="https://visualstudio.microsoft.com/vs/community/" target="_blank" rel="noopener noreferrer" class="">https://visualstudio.microsoft.com/vs/community/</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Visual Studio Community download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/vsc-2026-installation-01-3c8b2dd92b99621eb83ee65401f2f2d3.jpeg" width="1915" height="1384" class="img_ev3q"></p>
+<ol start="2">
+<li class="">
+<p>Run the installer. When prompted to select workloads, enable:</p>
+<ul>
+<li class=""><strong>Desktop development with C++</strong></li>
+</ul>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="CMake installer first screen" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/vsc-2026-installation-02-7673e0d30afd81e4b2bd64a466c7f8f2.jpeg" width="1920" height="1909" class="img_ev3q"></p>
+<ol start="4">
+<li class="">Complete the installation and allow Visual Studio to download and install all selected components.</li>
+</ol>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-installation-3">Verify the installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-installation-3" class="hash-link" aria-label="Direct link to Verify the installation" title="Direct link to Verify the installation" translate="no">​</a></h4>
+<p>After installation, open the <strong>x64 Native Tools Command Prompt</strong><br>
+<!-- -->(from the Start Menu) and run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cl</span><br></span></code></pre></div></div>
+<p>If the MSVC compiler is correctly installed, you should see output indicating the compiler version, ending with a message similar to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Microsoft (R) C/C++ Optimizing Compiler Version 19.50.35720 for x64</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Copyright (C) Microsoft Corporation.  All rights reserved.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">usage: cl [ option... ] filename... [ /link linkoption... ]</span><br></span></code></pre></div></div>
+<p>If the command is not found, ensure that:</p>
+<ul>
+<li class="">Visual Studio Community Edition is installed,</li>
+<li class="">the <strong>Desktop development with C++</strong> workload is enabled, and</li>
+<li class="">you are using the <strong>x64 Native Tools</strong> command prompt.</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-qt-6-msvc-x64">Installing Qt 6 (MSVC x64)<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-qt-6-msvc-x64" class="hash-link" aria-label="Direct link to Installing Qt 6 (MSVC x64)" title="Direct link to Installing Qt 6 (MSVC x64)" translate="no">​</a></h3>
+<p>Qt 6 is required to build and run the Tonatiuh++ graphical user interface.<br>
+<!-- -->On Windows, Qt <strong>must</strong> be built with the same compiler as the application, i.e. <strong>MSVC x64</strong>.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-qt">Install Qt<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-qt" class="hash-link" aria-label="Direct link to Install Qt" title="Direct link to Install Qt" translate="no">​</a></h4>
+<ol>
+<li class="">Download the <strong>Qt Online Installer</strong> from: <a href="https://www.qt.io/download-qt-installer" target="_blank" rel="noopener noreferrer" class="">https://www.qt.io/download-qt-installer</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Qt Installer download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/qt-installation-01-dabd8cde8a04dcce3dbfbe248654fdeb.jpeg" width="1848" height="1768" class="img_ev3q"></p>
+<ol start="2">
+<li class="">
+<p>Run the installer and sign in with a Qt account when prompted.</p>
+</li>
+<li class="">
+<p>When selecting components, expand the latest available <strong>Qt 6.x</strong> version and select:</p>
+<ul>
+<li class=""><strong>msvc2022_64</strong></li>
+</ul>
+<p>Other components (sources, Android, MinGW, etc.) are not required.</p>
+</li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Qt installation selection" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/qt-installation-02-b679cb0eda558b80a92bf9e65946cb1f.jpeg" width="1959" height="2023" class="img_ev3q"></p>
+<ol start="4">
+<li class="">Complete the installation.</li>
+</ol>
+<p>By default, Qt is installed under a path similar to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">C:\Qt\6.10.1\msvc2022_64</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-qt-installation">Verify the Qt installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-qt-installation" class="hash-link" aria-label="Direct link to Verify the Qt installation" title="Direct link to Verify the Qt installation" translate="no">​</a></h4>
+<p>Check that the Qt installation directory exists and contains the expected subdirectories, in particular:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">C:\Qt\6.10.1\msvc2022_64\bin</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">C:\Qt\6.10.1\msvc2022_64\lib</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">C:\Qt\6.10.1\msvc2022_64\lib\cmake\Qt6</span><br></span></code></pre></div></div>
+<p>The presence of 'lib\cmake\Qt6' confirms that CMake can locate Qt correctly.</p>
+<p>Qt does <strong>not</strong> need to be added manually to the system PATH. The build scripts and CMake configuration will locate it automatically.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-eigen">Installing Eigen<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-eigen" class="hash-link" aria-label="Direct link to Installing Eigen" title="Direct link to Installing Eigen" translate="no">​</a></h3>
+<p>Eigen is a header-only C++ library used by Tonatiuh++ for linear algebra operations.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-eigen">Install Eigen<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-eigen" class="hash-link" aria-label="Direct link to Install Eigen" title="Direct link to Install Eigen" translate="no">​</a></h4>
+<ol>
+<li class="">Download Eigen from the official website: <a href="https://libeigen.gitlab.io/" target="_blank" rel="noopener noreferrer" class="">https://libeigen.gitlab.io/</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Eigen download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/eigen-installation-01-bc3d06389b8bce2f43a9fb851a683a26.jpeg" width="1920" height="1032" class="img_ev3q"></p>
+<ol start="2">
+<li class="">Extract the downloaded archive to a convenient location, for example:</li>
+</ol>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">C:\eigen-5.0.0</span><br></span></code></pre></div></div>
+<p>No compilation or installation step is required.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-installation-4">Verify the installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-installation-4" class="hash-link" aria-label="Direct link to Verify the installation" title="Direct link to Verify the installation" translate="no">​</a></h4>
+<p>Check that the Eigen directory contains the following path:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">C:\eigen-5.0.0\Eigen\src\Core</span><br></span></code></pre></div></div>
+<p>If this directory exists, Eigen is correctly installed.</p>
+<p>Eigen does <strong>not</strong> need to be added to the system <code>PATH</code>. If Eigen is installed in a non-standard location, its path can be provided later to the build scripts.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-boost">Installing Boost<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-boost" class="hash-link" aria-label="Direct link to Installing Boost" title="Direct link to Installing Boost" translate="no">​</a></h3>
+<p>Boost provides a collection of C++ libraries required by some Tonatiuh++'s third-party dependencies.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-boost">Install Boost<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-boost" class="hash-link" aria-label="Direct link to Install Boost" title="Direct link to Install Boost" translate="no">​</a></h4>
+<ol>
+<li class="">Download Boost from the official website: <a href="https://www.boost.org/users/download/" target="_blank" rel="noopener noreferrer" class="">https://www.boost.org/users/download/</a></li>
+</ol>
+<p><img decoding="async" loading="lazy" alt="Boost download webpage" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/boost-1-90-0-installation-01-bdc801c17add236ffa7203ca7ce5371e.jpeg" width="1915" height="1117" class="img_ev3q"></p>
+<ol start="2">
+<li class="">Choose a recent Boost release compatible with MSVC and extract it to a location such as:</li>
+</ol>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">C:\boost_1_90_0</span><br></span></code></pre></div></div>
+<p>No further installation step is required if Boost headers are available.</p>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-installation-5">Verify the installation<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-installation-5" class="hash-link" aria-label="Direct link to Verify the installation" title="Direct link to Verify the installation" translate="no">​</a></h4>
+<p>Check that the Boost directory contains the following header file:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">C:\boost_1_90_0\boost\version.hpp</span><br></span></code></pre></div></div>
+<p>The presence of this file confirms that Boost headers are available.</p>
+<p>Boost does <strong>not</strong> need to be added to the system <code>PATH</code>. If Boost is installed in a non-standard location, its path can be provided later to the build scripts.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="opening-the-msvc-x64-build-environment">Opening the MSVC x64 Build Environment<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#opening-the-msvc-x64-build-environment" class="hash-link" aria-label="Direct link to Opening the MSVC x64 Build Environment" title="Direct link to Opening the MSVC x64 Build Environment" translate="no">​</a></h2>
+<p>All build commands for Tonatiuh++ must be executed from an environment where the <strong>MSVC x64 compiler</strong> and associated tools are correctly configured.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="open-the-msvc-x64-native-tools-command-prompt">Open the MSVC x64 Native Tools Command Prompt<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#open-the-msvc-x64-native-tools-command-prompt" class="hash-link" aria-label="Direct link to Open the MSVC x64 Native Tools Command Prompt" title="Direct link to Open the MSVC x64 Native Tools Command Prompt" translate="no">​</a></h3>
+<p>From the <strong>Start Menu</strong>, open:</p>
+<blockquote>
+<p><strong>x64 Native Tools Command Prompt (Visual Studio)</strong></p>
+</blockquote>
+<p>This command prompt initializes the environment variables required to use the MSVC x64 toolchain.</p>
+<p>When opened successfully, you should see output similar to:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token punctuation" style="color:#393A34">[</span><span class="token plain">vcvarsall.bat</span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> Environment initialized for: </span><span class="token string" style="color:#e3116c">'x64'</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="verify-the-compiler">Verify the compiler<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#verify-the-compiler" class="hash-link" aria-label="Direct link to Verify the compiler" title="Direct link to Verify the compiler" translate="no">​</a></h3>
+<p>In the same command prompt, run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cl</span><br></span></code></pre></div></div>
+<p>If the environment is correctly configured, the MSVC compiler will respond with output similar to:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Microsoft </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">R</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> C/C++ Optimizing Compiler Version </span><span class="token number" style="color:#36acaa">19.50</span><span class="token plain">.35720 </span><span class="token keyword" style="color:#00009f">for</span><span class="token plain"> x64</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Copyright </span><span class="token punctuation" style="color:#393A34">(</span><span class="token plain">C</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"> Microsoft Corporation.  All rights reserved.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">usage: cl </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"> option</span><span class="token punctuation" style="color:#393A34">..</span><span class="token plain">. </span><span class="token punctuation" style="color:#393A34">]</span><span class="token plain"> filename</span><span class="token punctuation" style="color:#393A34">..</span><span class="token plain">. </span><span class="token punctuation" style="color:#393A34">[</span><span class="token plain"> /link linkoption</span><span class="token punctuation" style="color:#393A34">..</span><span class="token plain">. </span><span class="token punctuation" style="color:#393A34">]</span><br></span></code></pre></div></div>
+<p>If cl is not found, ensure that:</p>
+<ul>
+<li class="">Visual Studio Community Edition is installed,</li>
+<li class="">the Desktop development with C++ workload is enabled, and</li>
+<li class="">you are using the x64 Native Tools Command Prompt, not a regular command prompt.</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="clone-the-repository">Clone the repository<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#clone-the-repository" class="hash-link" aria-label="Direct link to Clone the repository" title="Direct link to Clone the repository" translate="no">​</a></h2>
+<p>Git is required to download the Tonatiuh++ source code and its third-party dependencies.</p>
+<p>Choose a working folder (example below uses the user profile) and clone the repository:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token builtin class-name">cd</span><span class="token plain"> </span><span class="token string" style="color:#e3116c">"%USERPROFILE%"</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token function" style="color:#d73a49">git</span><span class="token plain"> clone --recurse-submodules https://github.com/CST-Modelling-Tools/tonatiuhpp.git</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin class-name">cd</span><span class="token plain"> tonatiuhpp</span><br></span></code></pre></div></div>
+<p>If you already cloned the repository <em>without</em> submodules, you can initialize them with:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token function" style="color:#d73a49">git</span><span class="token plain"> submodule update </span><span class="token parameter variable" style="color:#36acaa">--init</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">--recursive</span><br></span></code></pre></div></div>
+<p>After cloning, you should have a folder structure that includes at least:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">scripts\</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">source\</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">third_party\</span><br></span></code></pre></div></div>
+<p>If everything looks correct, proceed to building third-party dependencies.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="building-third-party-dependencies">Building third-party dependencies<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#building-third-party-dependencies" class="hash-link" aria-label="Direct link to Building third-party dependencies" title="Direct link to Building third-party dependencies" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="build-dependencies">Build dependencies<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#build-dependencies" class="hash-link" aria-label="Direct link to Build dependencies" title="Direct link to Build dependencies" translate="no">​</a></h3>
+<p>Tonatiuh++ relies on several third-party libraries (such as Coin3D, simage, and SoQt) that are built locally using a Python script included in this repository.</p>
+<p>All commands in this section must be executed from the <strong>MSVC x64 Native Tools Command Prompt</strong>.</p>
+<hr>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="run-the-dependency-build-script">Run the dependency build script<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#run-the-dependency-build-script" class="hash-link" aria-label="Direct link to Run the dependency build script" title="Direct link to Run the dependency build script" translate="no">​</a></h3>
+<p>From the root of the Tonatiuh++ repository, execute:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python scripts</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">build_deps.py</span><br></span></code></pre></div></div>
+<p>The script automatically:</p>
+<ul>
+<li class="">detects <strong>Qt</strong>, <strong>Boost</strong>, and <strong>Eigen</strong> on your system,</li>
+<li class="">clones and builds <strong>Coin3D</strong>, <strong>simage</strong>, and <strong>SoQt</strong>,</li>
+<li class="">installs the resulting libraries under <code>third_party\_install</code>,</li>
+<li class="">generates CMake dependency hint files for later configuration,</li>
+<li class="">verifies each dependency before proceeding.</li>
+</ul>
+<p>The build process may take several minutes, depending on your system.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-pyyaml-if-required">Installing PyYAML (if required)<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-pyyaml-if-required" class="hash-link" aria-label="Direct link to Installing PyYAML (if required)" title="Direct link to Installing PyYAML (if required)" translate="no">​</a></h3>
+<p>On Windows, Python installations often do <strong>not</strong> include PyYAML by default. If the script stops with a message indicating that <strong>PyYAML</strong> is missing, install it using:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python </span><span class="token parameter variable" style="color:#36acaa">-m</span><span class="token plain"> pip </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">--upgrade</span><span class="token plain"> pip</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">python </span><span class="token parameter variable" style="color:#36acaa">-m</span><span class="token plain"> pip </span><span class="token function" style="color:#d73a49">install</span><span class="token plain"> pyyaml</span><br></span></code></pre></div></div>
+<blockquote>
+<p><strong>Important</strong><br>
+<!-- -->Do <strong>not</strong> use <code>pip install ...</code> directly. On Windows, <code>pip</code> is not always available as a standalone command.<br>
+<!-- -->Always invoke it via <code>python -m pip</code>.</p>
+</blockquote>
+<p>A successful installation will produce output similar to:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Collecting pyyaml</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">  Downloading pyyaml-6.0.3-cp314-cp314-win_amd64.whl.metadata (2.4 kB)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Downloading pyyaml-6.0.3-cp314-cp314-win_amd64.whl (156 kB)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Installing collected packages: pyyaml</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Successfully installed pyyaml-6.0.3</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span></code></pre></div></div>
+<p>After installing PyYAML, rerun:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python scripts</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">build_deps.py</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="if-python-fails-before-the-script-runs">If Python fails before the script runs<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#if-python-fails-before-the-script-runs" class="hash-link" aria-label="Direct link to If Python fails before the script runs" title="Direct link to If Python fails before the script runs" translate="no">​</a></h3>
+<p>If Python exits immediately with an error such as:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Fatal Python error: Failed to import encodings module</span><br></span></code></pre></div></div>
+<p>this indicates a <strong>broken Python environment</strong>, usually caused by incorrectly set environment variables.</p>
+<p>Before retrying, ensure that the following environment variables are <strong>not set</strong>:</p>
+<ul>
+<li class=""><code>PYTHONHOME</code></li>
+<li class=""><code>PYTHONPATH</code></li>
+</ul>
+<p>You can check this quickly with:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token builtin class-name">set</span><span class="token plain"> PYTHONHOME</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token builtin class-name">set</span><span class="token plain"> PYTHONPATH</span><br></span></code></pre></div></div>
+<p>If either variable is defined, the content of the variable will be printed on the terminal. Should that be the case, remove the variable from your <strong>User</strong> and <strong>System</strong> environment variables, close the current terminal, open a new one, and retry the build script.</p>
+<hr>
+<p>If the dependency build completes without errors, you can proceed to configuring and building Tonatiuh++ itself.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="optional-diagnose-configuration-issues">Optional: diagnose configuration issues<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#optional-diagnose-configuration-issues" class="hash-link" aria-label="Direct link to Optional: diagnose configuration issues" title="Direct link to Optional: diagnose configuration issues" translate="no">​</a></h3>
+<p>To verify your environment or troubleshoot failures, you can run:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python scripts</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">build_deps.py </span><span class="token parameter variable" style="color:#36acaa">--doctor</span><br></span></code></pre></div></div>
+<p>This diagnostic mode checks for missing tools and libraries, validates the MSVC x64 environment, and reports common Windows configuration issues.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="expected-output">Expected output<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#expected-output" class="hash-link" aria-label="Direct link to Expected output" title="Direct link to Expected output" translate="no">​</a></h3>
+<p>After a successful run, the following directory should exist:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">third_party\_install</span><br></span></code></pre></div></div>
+<p>This directory contains all locally built third-party dependencies and will be used automatically during the CMake configuration step.</p>
+<p>If the dependency build completes without errors, you can proceed to configuring Tonatiuh++.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="configuring-tonatiuh-with-cmake">Configuring Tonatiuh++ with CMake<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#configuring-tonatiuh-with-cmake" class="hash-link" aria-label="Direct link to Configuring Tonatiuh++ with CMake" title="Direct link to Configuring Tonatiuh++ with CMake" translate="no">​</a></h2>
+<p>After cloning the repository and building the third-party dependencies, you can configure Tonatiuh++ using CMake.</p>
+<p>All commands in this section must be executed from the <strong>MSVC x64 build environment</strong> opened previously.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-a-configure-with-the-default-cmake-generator">Option A: Configure with the default CMake generator<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#option-a-configure-with-the-default-cmake-generator" class="hash-link" aria-label="Direct link to Option A: Configure with the default CMake generator" title="Direct link to Option A: Configure with the default CMake generator" translate="no">​</a></h3>
+<p>To configure Tonatiuh++, execute the following cmake statement:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build</span><br></span></code></pre></div></div>
+<p>CMake will automatically select an appropriate generator based on your environment. CMake will print a summary and finish with messages similar to:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">-- Configuring </span><span class="token keyword" style="color:#00009f">done</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">8</span><span class="token plain">.2s</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-- Generating </span><span class="token keyword" style="color:#00009f">done</span><span class="token plain"> </span><span class="token punctuation" style="color:#393A34">(</span><span class="token number" style="color:#36acaa">2</span><span class="token plain">.5s</span><span class="token punctuation" style="color:#393A34">)</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">-- Build files have been written to: C:/</span><span class="token punctuation" style="color:#393A34">..</span><span class="token plain">./tonatiuhpp/build</span><br></span></code></pre></div></div>
+<p>If the <code>build</code> directory does not exist, CMake will create it automatically.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="option-b-configure-with-ninja">Option B: Configure with Ninja<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#option-b-configure-with-ninja" class="hash-link" aria-label="Direct link to Option B: Configure with Ninja" title="Direct link to Option B: Configure with Ninja" translate="no">​</a></h3>
+<p>If Ninja is installed and available on your <code>PATH</code>, you can explicitly request it:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">-S</span><span class="token plain"> </span><span class="token builtin class-name">source</span><span class="token plain"> </span><span class="token parameter variable" style="color:#36acaa">-B</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">-G</span><span class="token plain"> Ninja</span><br></span></code></pre></div></div>
+<p>When using Ninja, you may also specify the build type at configure time (for example <code>-DCMAKE_BUILD_TYPE=Release</code>).</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="notes-about-dependency-discovery">Notes about dependency discovery<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#notes-about-dependency-discovery" class="hash-link" aria-label="Direct link to Notes about dependency discovery" title="Direct link to Notes about dependency discovery" translate="no">​</a></h3>
+<p>You do <strong>not</strong> need to set <code>CMAKE_PREFIX_PATH</code> manually.</p>
+<p>The project automatically discovers all required dependencies using:</p>
+<ul>
+<li class=""><code>third_party\_install</code></li>
+<li class=""><code>cmake\LocalDepsHints.cmake</code> (generated by <code>scripts\build_deps.py</code>)</li>
+</ul>
+<p>If configuration completes successfully, you can proceed to building Tonatiuh++ using the same build directory.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="building-and-installing-tonatiuh">Building and Installing Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#building-and-installing-tonatiuh" class="hash-link" aria-label="Direct link to Building and Installing Tonatiuh++" title="Direct link to Building and Installing Tonatiuh++" translate="no">​</a></h2>
+<p>After configuring the project with CMake, you can build and install Tonatiuh++.</p>
+<p>All commands in this section must be executed from the <strong>same build environment</strong> used during configuration.</p>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="build-the-project">Build the project<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#build-the-project" class="hash-link" aria-label="Direct link to Build the project" title="Direct link to Build the project" translate="no">​</a></h3>
+<p>If you configured with a multi-configuration generator, build Release with:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release</span><br></span></code></pre></div></div>
+<p>If you configured with Ninja (single-configuration), build with:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">--build</span><span class="token plain"> build</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-the-project">Install the project<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-the-project" class="hash-link" aria-label="Direct link to Install the project" title="Direct link to Install the project" translate="no">​</a></h3>
+<p>For multi-configuration generators:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">--install</span><span class="token plain"> build </span><span class="token parameter variable" style="color:#36acaa">--config</span><span class="token plain"> Release</span><br></span></code></pre></div></div>
+<p>For Ninja (single-configuration):</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">cmake </span><span class="token parameter variable" style="color:#36acaa">--install</span><span class="token plain"> build</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installation-location">Installation location<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installation-location" class="hash-link" aria-label="Direct link to Installation location" title="Direct link to Installation location" translate="no">​</a></h3>
+<p>By default, Tonatiuh++ is installed into a user-local directory defined during configuration. After installation, the executable, libraries, and resources will be placed under that installation prefix.</p>
+<p>If the installation completes without errors, Tonatiuh++ is ready to run. On Windows you can run it by going to the "installation" folder, locate within it the "bin" folder, find within it the program tonatiuhpp.exe, and left-click on it twice.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="summary">Summary<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#summary" class="hash-link" aria-label="Direct link to Summary" title="Direct link to Summary" translate="no">​</a></h2>
+<p>In this guide, you have built and installed <strong>Tonatiuh++</strong> from source on <strong>Windows 11</strong> using a fully command-line workflow.</p>
+<p>The main steps were:</p>
+<ul>
+<li class="">Install the required tools and libraries: <strong>Python</strong>, <strong>Git</strong>, <strong>CMake</strong>, <strong>Visual Studio Community Edition (MSVC x64)</strong>, <strong>Qt 6</strong>, <strong>Eigen</strong>, and <strong>Boost</strong></li>
+<li class="">Clone the Tonatiuh++ repository</li>
+<li class="">Build the required third-party dependencies using the provided Python script</li>
+<li class="">Configure the project with CMake</li>
+<li class="">Build and install Tonatiuh++</li>
+</ul>
+<p>At any point, you can use the diagnostic command:</p>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python scripts</span><span class="token punctuation" style="color:#393A34">\</span><span class="token plain">build_deps.py </span><span class="token parameter variable" style="color:#36acaa">--doctor</span><br></span></code></pre></div></div>
+<p>to verify your environment and identify missing or misconfigured components.</p>
+<p>After installation, Tonatiuh++ can be launched from the installation directory and is ready for use.</p>
+<p>This workflow ensures a clean, reproducible build using a user-local installation, without requiring administrative privileges or IDE integration.</p>]]></content>
         <author>
             <name>Manuel Blanco</name>
             <uri>https://github.com/mblancomuriel</uri>
@@ -445,7 +680,7 @@ C:\Qt\6.x.x\msvc2022_64\</p>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/status-and-future-work"/>
         <updated>2025-12-02T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Tonatiuh++ roadmap symbolic image]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ roadmap symbolic image" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhpp-roadmap-b31a422feabf5cb546178cf9c993111a.png" width="1996" height="1125" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ roadmap symbolic image" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhpp-roadmap-8a116337f611e7725414b8096e2b129a.png" width="1996" height="1125" class="img_ev3q"></p>
 <p>Tonatiuh++ began its development in <strong>2018</strong> within the framework of the <em>CySTEM ERA Chair</em> project at the Cyprus Institute. From the outset, it was conceived as a <strong>Free and Open-Source Software (FOSS)</strong> project and as an enhanced successor to the original Tonatiuh ray tracer.</p>
 <p>The original Tonatiuh code has a long and diverse history. I first developed it under contract with NREL while serving as Director of the Engineering Department at the University of Texas at Brownsville in the United States. When I later returned to Spain and joined CENER—the National Renewable Energy Center—I continued its development while establishing and directing its Solar Thermal Department. After my departure from CENER to direct the Australian Solar Thermal Research Initiative at CSIRO in Australia, CENER continued leading Tonatiuh’s evolution, a role it still maintains today.</p>
 <hr>
@@ -493,7 +728,7 @@ C:\Qt\6.x.x\msvc2022_64\</p>
         <link href="https://CST-Modelling-Tools.github.io/tonatiuhpp-blog/welcome"/>
         <updated>2025-10-14T00:00:00.000Z</updated>
         <summary type="html"><![CDATA[Introduction to the Tonatiuh++ Development Blog - documenting advances in this solar ray tracing software for concentrating solar thermal systems]]></summary>
-        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ logo" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhpp-logo-c93d17dc8b016fccd70dd97b73e183bf.png" width="1582" height="512" class="img_ev3q"></p>
+        <content type="html"><![CDATA[<p><img decoding="async" loading="lazy" alt="Tonatiuh++ logo" src="https://cst-modelling-tools.github.io/tonatiuhpp-blog/assets/images/tonatiuhpp-logo-914a5e583a7b0695d1942c6f1cdf1f38.png" width="1582" height="512" class="img_ev3q"></p>
 <p>This blog documents the ongoing development and enhancement of Tonatiuh++, an advanced solar ray tracing software for analyzing the optical behaviour of solar concentrators.</p>
 <h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="about-tonatiuh">About Tonatiuh++<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/welcome#about-tonatiuh" class="hash-link" aria-label="Direct link to About Tonatiuh++" title="Direct link to About Tonatiuh++" translate="no">​</a></h2>
 <p>Tonatiuh++ is an enhanced version of the Tonatiuh ray tracer with improvements in ray tracing algorithms, performance, and cross-platform support.</p>
