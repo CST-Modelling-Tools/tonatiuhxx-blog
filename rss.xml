@@ -350,8 +350,8 @@
 <li class=""><strong>Eigen</strong> (header-only linear algebra library)</li>
 <li class=""><strong>Boost</strong> (C++ utility libraries)</li>
 </ul>
-<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-required-tools">Install required tools<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-required-tools" class="hash-link" aria-label="Direct link to Install required tools" title="Direct link to Install required tools" translate="no">​</a></h2>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-python-on-windows">Installing Python on Windows<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-python-on-windows" class="hash-link" aria-label="Direct link to Installing Python on Windows" title="Direct link to Installing Python on Windows" translate="no">​</a></h3>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="required-tools">Required tools<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#required-tools" class="hash-link" aria-label="Direct link to Required tools" title="Direct link to Required tools" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-python">Installing Python<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-python" class="hash-link" aria-label="Direct link to Installing Python" title="Direct link to Installing Python" translate="no">​</a></h3>
 <p>Python is required to run the dependency build and diagnostic scripts used by Tonatiuh++.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-python">Install Python<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-python" class="hash-link" aria-label="Direct link to Install Python" title="Direct link to Install Python" translate="no">​</a></h4>
 <ol>
@@ -378,7 +378,7 @@
 <p>On some systems, Python may be invoked using <code>python3</code> instead:</p>
 <div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">python3 </span><span class="token parameter variable" style="color:#36acaa">--version</span><br></span></code></pre></div></div>
 <p>If neither command is found, ensure that Python is installed and that its installation directory is included in your system <code>PATH</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-git-on-windows">Installing Git on Windows<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-git-on-windows" class="hash-link" aria-label="Direct link to Installing Git on Windows" title="Direct link to Installing Git on Windows" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-git">Installing Git<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-git" class="hash-link" aria-label="Direct link to Installing Git" title="Direct link to Installing Git" translate="no">​</a></h3>
 <p>Git is required to clone the Tonatiuh++ repository and to fetch third-party sources during the build process.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-git">Install Git<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-git" class="hash-link" aria-label="Direct link to Install Git" title="Direct link to Install Git" translate="no">​</a></h4>
 <ol>
@@ -399,7 +399,7 @@
 <p>If Git is correctly installed, you should see an output similar to:</p>
 <div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">git version 2.52.0.windows.1</span><br></span></code></pre></div></div>
 <p>If the command is not found, ensure that Git is installed and that its <code>bin</code> directory is included in your system <code>PATH</code>.</p>
-<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-cmake-on-windows">Installing CMake on Windows<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-cmake-on-windows" class="hash-link" aria-label="Direct link to Installing CMake on Windows" title="Direct link to Installing CMake on Windows" translate="no">​</a></h3>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="installing-cmake">Installing CMake<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#installing-cmake" class="hash-link" aria-label="Direct link to Installing CMake" title="Direct link to Installing CMake" translate="no">​</a></h3>
 <p>CMake is required to configure and build Tonatiuh++ and its third-party dependencies. A sufficiently recent version is mandatory.</p>
 <h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="install-cmake">Install CMake<a href="https://cst-modelling-tools.github.io/tonatiuhpp-blog/build-windows#install-cmake" class="hash-link" aria-label="Direct link to Install CMake" title="Direct link to Install CMake" translate="no">​</a></h4>
 <ol>
