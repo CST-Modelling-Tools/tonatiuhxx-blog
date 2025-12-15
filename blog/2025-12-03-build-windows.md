@@ -23,9 +23,9 @@ Before starting, make sure the following software is installed on your system:
 - **Eigen** (header-only linear algebra library)
 - **Boost** (C++ utility libraries)
 
-## Install required tools
+## Required tools
 
-### Installing Python on Windows
+### Installing Python
 
 Python is required to run the dependency build and diagnostic scripts used by Tonatiuh++.
 
@@ -68,7 +68,7 @@ python3 --version
 
 If neither command is found, ensure that Python is installed and that its installation directory is included in your system `PATH`.
 
-### Installing Git on Windows
+### Installing Git
 
 Git is required to clone the Tonatiuh++ repository and to fetch third-party sources during the build process.
 
@@ -101,7 +101,7 @@ git version 2.52.0.windows.1
 
 If the command is not found, ensure that Git is installed and that its `bin` directory is included in your system `PATH`.
 
-### Installing CMake on Windows
+### Installing CMake
 
 CMake is required to configure and build Tonatiuh++ and its third-party dependencies. A sufficiently recent version is mandatory.
 
@@ -453,6 +453,19 @@ This directory contains all locally built third-party dependencies and will be u
 
 If the dependency build completes without errors, you can proceed to configuring Tonatiuh++.
 
+### Building dependencies for Debug (Windows)
+
+On Windows, a **Debug** build of Tonatiuh++ must link against **Debug** builds of the third-party libraries (Coin3D, SoQt, simage).  
+These libraries typically produce debug import libraries with a `d` suffix (for example `SoQt1d.lib`), so building Tonatiuh++ in Debug will fail if the dependencies were built only in Release.
+
+To build the third-party dependencies in **Debug**, run:
+
+```bash
+python scripts\build_deps.py --config Debug
+```
+
+After this completes successfully, you can configure and build Tonatiuh++ in Debug.
+
 ## Configuring Tonatiuh++ with CMake
 
 After cloning the repository and building the third-party dependencies, you can configure Tonatiuh++ using CMake.
@@ -536,6 +549,21 @@ cmake --install build
 By default, Tonatiuh++ is installed into a user-local directory defined during configuration. After installation, the executable, libraries, and resources will be placed under that installation prefix.
 
 If the installation completes without errors, Tonatiuh++ is ready to run. On Windows you can run it by going to the "installation" folder, locate within it the "bin" folder, find within it the program tonatiuhpp.exe, and left-click on it twice.
+
+### Building a Debug configuration
+
+To build Tonatiuh++ in **Debug**, make sure you have built the third-party dependencies in Debug first:
+
+```bash
+python scripts\build_deps.py --config Debug
+```
+
+Then build and install the Debug configuration:
+
+```bash
+cmake --build build --config Debug
+cmake --install build --config Debug
+```
 
 ## Summary
 
