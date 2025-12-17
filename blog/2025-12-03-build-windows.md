@@ -474,10 +474,10 @@ All commands in this section must be executed from the **MSVC x64 build environm
 
 ### Option A: Configure with the default CMake generator
 
-To configure Tonatiuh++, execute the following cmake statement:
+To configure Tonatiuh++ in *release mode*, execute the following CMake command:
 
 ```bash
-cmake -S source -B build
+cmake -S source -B build -DCMAKE_BUILD_TYPE=Release
 ```
 
 CMake will automatically select an appropriate generator based on your environment. CMake will print a summary and finish with messages similar to:
@@ -488,17 +488,22 @@ CMake will automatically select an appropriate generator based on your environme
 -- Build files have been written to: C:/.../tonatiuhpp/build
 ```
 
-If the `build` directory does not exist, CMake will create it automatically.
+If the *build* directory does not exist, CMake will create it automatically.
+
+To configure Tonatiuh++ in *Debug mode*, execute the following command:
+
+```bash
+cmake -S source -B build -DCMAKE_BUILD_TYPE=Debug
+```
+Note, however, that to generate Tonatiuh++ in *Debug mode*, you must first build the third-party dependencies in *Debug mode* as well, following the procedure explained [here](#building-a-debug-configuration).
 
 ### Option B: Configure with Ninja
 
 If Ninja is installed and available on your `PATH`, you can explicitly request it:
 
 ```bash
-cmake -S source -B build -G Ninja
+cmake -S source -B build -G Ninja -DCMAKE_BUILD_TYPE=Release
 ```
-
-When using Ninja, you may also specify the build type at configure time (for example `-DCMAKE_BUILD_TYPE=Release`).
 
 ### Notes about dependency discovery
 
@@ -515,7 +520,7 @@ If configuration completes successfully, you can proceed to building Tonatiuh++ 
 
 After configuring the project with CMake, you can build and install Tonatiuh++.
 
-All commands in this section must be executed from the **same build environment** used during configuration.
+All commands in this section must be executed from the same build environment used during configuration.
 
 ### Build the project
 
@@ -546,13 +551,19 @@ cmake --install build
 ```
 ### Installation location
 
-By default, Tonatiuh++ is installed into a user-local directory defined during configuration. After installation, the executable, libraries, and resources will be placed under that installation prefix.
+By default, Tonatiuh++ is installed into a folder named *"tonatiuhpp"* n the main directory of the user performing the installation. After installation, the executable, libraries, and resources are placed under this installation prefix.
 
-If the installation completes without errors, Tonatiuh++ is ready to run. On Windows you can run it by going to the "installation" folder, locate within it the "bin" folder, find within it the program tonatiuhpp.exe, and left-click on it twice.
+If you want to install Tonatiuh++ in a specific location, specify the installation prefix at configuration time using CMAKE_INSTALL_PREFIX. For example:
+
+```bash
+cmake -S source -B build -DCMAKE_INSTALL_PREFIX="C:/Program Files/tonatiuhpp"
+```
+
+If the installation completes without errors, Tonatiuh++ is ready to run. On Windows, you can launch it by navigating to the installation directory, opening the bin folder, locating tonatiuhpp.exe, and double-clicking it.
 
 ### Building a Debug configuration
 
-To build Tonatiuh++ in **Debug**, make sure you have built the third-party dependencies in Debug first:
+To build Tonatiuh++ in **Debug mode**, ensure that the third-party dependencies have also been built in Debug:
 
 ```bash
 python scripts\build_deps.py --config Debug
