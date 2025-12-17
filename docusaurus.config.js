@@ -60,6 +60,7 @@ const config = {
       ({
         blog: {
           routeBasePath: '/', // Make blog the homepage
+          blogListComponent: '@site/src/components/BlogHome',
           showReadingTime: true,
           blogTitle: 'Tonatiuh++ Development Blog - Solar Ray Tracing Research',
           blogDescription:
