@@ -7,251 +7,322 @@ tags: [macos, build, development]
 
 ![Tonatiuh++ running on macOS](/img/tonatiuhxx-apple-screenshot.png)
 
-macOS provides a clean and robust environment for building Tonatiuh++ thanks to its modern Clang compiler, strong UNIX foundations, and excellent package management through Homebrew. This guide describes the complete process for installing the necessary tools, building third-party dependencies, and compiling the Tonatiuh++ application on macOS Ventura, Sonoma, and newer.
+macOS provides a clean and robust environment for building **Tonatiuh++** thanks to its modern **Apple Clang** compiler, strong UNIX foundations, and excellent package management through **Homebrew**.  
+
+This guide describes the complete process for building Tonatiuh++ from source on **macOS Ventura, Sonoma, and newer**, including installing the required development tools, building third-party dependencies using the scripts provided in the repository, configuring the project with CMake, and compiling the final application.
+
+The workflow is **entirely command-line–based** and uses the system **Clang toolchain** provided by Xcode Command Line Tools. No IDE integration is required.
 
 <!-- truncate -->
 
-# 1. Install Homebrew
+## Install Homebrew
 
-If Homebrew is not installed, open Terminal and run:
+Homebrew is the standard package manager on macOS and will be used throughout this guide to install build tools and libraries.
+
+If Homebrew is not already installed, open **Terminal** and run:
 
 ```bash
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
 ```
 
-After installation:
+After installation completes, update Homebrew:
 
 ```bash
-    brew update
-```    
+brew update
+```
 
-Homebrew will be used to install CMake, Python, Qt6, and development libraries.
+Homebrew works transparently on both Apple Silicon and Intel Macs and will be used to install CMake, Python, Qt 6, and additional development libraries required by Tonatiuh++.
 
-# 2. Install Required Development Tools
+## Install Required Development Tools
 
-Install the essential compiler and developer tools:
+Tonatiuh++ is built on macOS using the **Apple Clang** compiler and the system SDK provided by Xcode Command Line Tools.
+
+Install the required compiler and developer tools by running:
 
 ```bash
-    xcode-select --install
+xcode-select --install
 ```    
 
-This provides:
+This installs:
 
-- Apple Clang (C++17 compliant)
+- Apple Clang (C++20 capable)
 - macOS SDK
-- Build utilities
+- Build utilities (make, ld, etc.)
 
-Verify compiler:
-
-```bash
-    clang++ --version
-```
-
-You should see Apple Clang 14 or newer.
-
-# 3. Install Build Dependencies via Homebrew
-
-Install core tools needed for building Tonatiuh++:
+Verify the compiler:
 
 ```bash
-    brew install cmake git python3
+clang++ --version
 ```
 
-Optional but recommended tools:
+You should see Apple Clang 14 or newer. You should see Apple Clang 14 or newer.
+
+If the command is not found, ensure that Xcode Command Line Tools are installed and selected by running:
 
 ```bash
-    brew install ninja pkg-config
+xcode-select -p
 ```
 
-Ninja speeds up the build process but is not required.
+This command should print a path similar to:
 
-# 4. Install Qt 6
+```text
+/Library/Developer/CommandLineTools
+```
+If no path is shown or an error is reported, reinstall the tools:
 
-Tonatiuh++ requires Qt 6.x for its graphical interface.
+```bash
+sudo xcode-select --reset
+xcode-select --install
+```
+
+After installation completes, close the terminal, open a new one, and retry:
+
+```bash
+clang++ --version
+```
+
+## Installing Build Dependencies via Homebrew
+
+Install the core tools required to build Tonatiuh++ using Homebrew:
+
+```bash
+brew install cmake git python
+```
+
+This installs:
+
+- CMake – project configuration and build system
+- Git – source control and dependency fetching
+- Python 3 – required to run the dependency build scripts
+
+Optional (recommended)
+
+```bash
+brew install ninja pkg-config
+```
+
+Ninja provides significantly faster builds than Make, but is not required. pkg-config helps some third-party libraries locate system dependencies.
+
+Verify the installation:
+
+Confirm that the required tools are available:
+
+```bash
+cmake --version
+git --version
+python3 --version
+```
+
+Each command should print a version number. If any command is not found, ensure Homebrew is correctly installed and that /opt/homebrew/bin is present in your PATH.
+
+## Installing Qt 6
+
+Tonatiuh++ requires **Qt 6.x** for its graphical user interface.
 
 Install Qt via Homebrew:
 
 ```bash
-    brew install qt@6
+brew install qt@6
 ```
 
-Qt will be installed at:
+On macOS, Homebrew installs Qt into a standard prefix:
 
-    /opt/homebrew/opt/qt@6        (Apple Silicon)
-    /usr/local/opt/qt@6           (Intel Macs)
+- **Apple Silicon:** /opt/homebrew/opt/qt@6
+- **Intel Macs:** /usr/local/opt/qt@6
 
-Add Qt to your PATH for convenience:
+Qt provides CMake configuration files under:
 
-Apple Silicon:
+```text
+<qt-prefix>/lib/cmake/Qt6
+```
+which allows CMake to locate Qt automatically during configuration.
+
+Verify the Qt installation
+
+You can verify that Qt 6 is installed by running:
 
 ```bash
-    echo 'export PATH="/opt/homebrew/opt/qt@6/bin:$PATH"' >> ~/.zshrc
-    source ~/.zshrc
+qtpaths --qt-version
+```
+This should report a Qt 6.x version.
+
+**Note**
+Qt does not need to be added to your PATH. The Tonatiuh++ build system and dependency scripts will locate Qt automatically using CMake.
+
+## Cloning the Tonatiuh++ repository
+
+Choose a working directory and clone the repository together with its submodules:
+
+```bash
+git clone --recurse-submodules https://github.com/CST-Modelling-Tools/tonatiuhpp.git
+cd tonatiuhpp
+```
+If you already cloned the repository without submodules, initialize them with:
+
+```bash
+git submodule update --init --recursive
 ```
 
-Intel Macs:
+## Building third-party dependencies
+
+Tonatiuh++ relies on several third-party libraries, including **Coin3D**, **SoQt**, and **simage**, which are built locally using a Python script provided in the repository.
+
+### Create and activate a Python virtual environment
+On macOS, Homebrew-managed Python requires third-party packages to be installed inside a virtual environment.
+
+From the root of the repository, create a virtual environment:
 
 ```bash
-    echo 'export PATH="/usr/local/opt/qt@6/bin:$PATH"' >> ~/.zshrc
-    source ~/.zshrc
-```    
-
-Verify:
-
-```bash
-    qmake --version
-    qtpaths --qt-version
+python3 -m venv .venv
 ```
 
-# 5. Clone the Tonatiuh++ Repository
-
-Navigate to the folder where you want the source code:
+Activate it:
 
 ```bash
-    git clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git
-    cd tonatiuhpp
+source .venv/bin/activate
 ```
 
-# 6. Build Third-Party Dependencies
+Your shell prompt should now indicate that the environment is active.
 
-Tonatiuh++ uses Coin3D, SoQt, simage, and other support libraries.
+### Install required Python packages
 
-They are automatically built via:
-
-```bash
-    python3 build_deps.py
-```    
-
-This may take time, especially on the first run.
-
-If you encounter network SSL issues while downloading sources:
+Install PyYAML, which is required by the dependency build script:
 
 ```bash
-    pip3 install --upgrade certifi
+pip install --upgrade pip
+pip install pyyaml
 ```
 
-# 7. Configure the Build with CMake
+### Run the dependency build script
 
-On macOS, Qt installed via Homebrew is discovered using CMake’s CMAKE_PREFIX_PATH.
-
-Apple Silicon:
+With the virtual environment active, run:
 
 ```bash
-    cmake -B build -S source \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_PREFIX_PATH="/opt/homebrew/opt/qt@6"
+python scripts/build_deps.py
 ```
 
-Intel Macs:
+The script will:
+
+- detect Qt, CMake, and system tools,
+- download and build third-party libraries,
+- install them under third_party/_install,
+- generate CMake hint files for later configuration.
+
+The initial run may take several minutes.
+
+### Troubleshooting network / SSL issues (rare)
+
+If you encounter SSL errors while downloading sources, ensure that your Python environment has up-to-date certificates:
 
 ```bash
-    cmake -B build -S source \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DCMAKE_PREFIX_PATH="/usr/local/opt/qt@6"
+pip install --upgrade certifi
 ```
+Then rerun the build script.
 
-CMake should detect:
-- Clang
-- Qt6
-- Coin3D / SoQt from `deps/install/`
 
-# 8. Build Tonatiuh++
+## Configure the Build with CMake
 
-Compile:
+After building the third-party dependencies, configure Tonatiuh++ using CMake.
+
+From the root of the repository, run:
 
 ```bash
-    cmake --build build --config Release --parallel
+cmake -S source -B build -DCMAKE_BUILD_TYPE=Release
 ```
 
-The final application will appear in:
+CMake will automatically locate all required dependencies using:
+
+- the locally built third-party libraries under third_party/_install,
+- the generated cmake/LocalDepsHints.cmake file,
+- Qt 6 installed via Homebrew.
+
+If configuration completes successfully, CMake will report that it has found:
+
+- the Apple Clang compiler,
+- Qt 6,
+- Coin3D and SoQt.
+
+## Building and installing Tonatiuh++
+
+After configuring the project, build and install Tonatiuh++:
 
 ```bash
-    build/application/tonatiuhpp.app
+cmake --build build --parallel
+cmake --install build
 ```
 
-You can launch it from Finder or by running:
+By default, Tonatiuh++ is installed into a user-local directory (for example ~/tonatiuhpp).
+
+On macOS, the application bundle will be located at:
+
+```text
+<install-prefix>/bin/TonatiuhXX.app
+```
+
+## Running Tonatiuh++
+You can launch the application either from Finder or from the terminal:
 
 ```bash
-    open build/application/TonatiuhXX.app
+open ~/tonatiuhpp/bin/tonatiuhpp.app
 ```
 
-# 9. macOS Application Bundle Notes
+## Troubleshooting
 
-macOS uses `.app` bundles that must include Qt plugins and frameworks.
+### Qt 6 not detected by CMake
 
-If plugins are missing, you may see errors such as:
-
-    This application failed to start because no Qt platform plugin could be initialized.
-
-To fix this, use:
+If CMake reports that Qt 6 cannot be found, first verify that Qt is installed via Homebrew:
 
 ```bash
-    macdeployqt build/application/TonatiuhXX.app
+qtpaths --qt-version
 ```
 
-macdeployqt is included with the Qt installation.
+This should report a Qt 6.x version.
 
-# 10. Troubleshooting
+If Qt is installed but CMake still fails to configure, ensure that the dependency build step completed successfully and that cmake/LocalDepsHints.cmake exists in the repository.
 
-## Qt not found
-Check your Qt install location:
+### build_deps.py fails to start
 
-Apple Silicon:
+On macOS, Homebrew-managed Python requires running the dependency script inside a virtual environment.
+
+Ensure that the virtual environment is activated:
 
 ```bash
-    ls /opt/homebrew/opt/qt@6/
+source .venv/bin/activate
 ```
 
-Apple Intel:
+Then verify that PyYAML is installed:
 
 ```bash
-    ls /usr/local/opt/qt@6/
+python -c "import yaml; print(yaml.__version__)"
 ```
 
-## CMake cannot find Qt
-Pass the explicit prefix path:
+If needed, reinstall it:
 
 ```bash
-    -DCMAKE_PREFIX_PATH=/opt/homebrew/opt/qt@6
+pip install pyyaml
 ```
 
-## Missing OpenGL libraries
-Install:
+### Diagnose the environment
+
+To check your system configuration and dependency discovery, you can run:
 
 ```bash
-    brew install mesa
+python scripts/build_deps.py --doctor
 ```
+This diagnostic mode reports missing tools, misconfigured paths, and common macOS setup issues.
 
-## build_deps.py failures
-Make sure `requests` is installed:
+## Summary
 
-```bash
-    pip3 install requests
-```
+To build **Tonatiuh++** on macOS:
 
-And verify Python:
+1. Install Homebrew and the required developer tools.
+2. Install core build tools (CMake, Git, Python) and Qt 6 using Homebrew.
+3. Clone the Tonatiuh++ repository with its submodules.
+4. Build the required third-party dependencies using `build_deps.py`.
+5. Configure the project with CMake.
+6. Build and install the application.
+7. Launch the installed macOS application bundle.
 
-```bash
-    python3 --version
-```
-
-## Permission errors
-If needed:
-```bash
-    chmod +x build/application/tonatiuhpp.app/Contents/MacOS/tonatiuhpp
-```
-
-# Summary
-
-To build Tonatiuh++ on macOS:
-
-1. Install Homebrew, developer tools, CMake, Git, Python.
-2. Install Qt 6 using Homebrew.
-3. Clone the Tonatiuh++ repository.
-4. Build third-party dependencies with build_deps.py.
-5. Configure using CMake with the Qt6 prefix path.
-6. Build, then run the Tonatiuh++ application bundle.
-
-macOS provides one of the smoothest build environments due to its native UNIX tooling and robust package ecosystem.
+macOS provides a clean and reliable build environment for Tonatiuh++ thanks to its modern Clang toolchain, robust UNIX foundations, and mature package ecosystem.
 
 ---
