@@ -15,14 +15,14 @@ The workflow is **entirely command-line–based** and uses the system **Clang to
 
 <!-- truncate -->
 
-## Install Homebrew
+## Installing Homebrew
 
 Homebrew is the standard package manager on macOS and will be used throughout this guide to install build tools and libraries.
 
 If Homebrew is not already installed, open **Terminal** and run:
 
 ```bash
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
 After installation completes, update Homebrew:
@@ -33,7 +33,7 @@ brew update
 
 Homebrew works transparently on both Apple Silicon and Intel Macs and will be used to install CMake, Python, Qt 6, and additional development libraries required by Tonatiuh++.
 
-## Install Required Development Tools
+## Installing required Development Tools
 
 Tonatiuh++ is built on macOS using the **Apple Clang** compiler and the system SDK provided by Xcode Command Line Tools.
 
@@ -55,9 +55,7 @@ Verify the compiler:
 clang++ --version
 ```
 
-You should see Apple Clang 14 or newer. You should see Apple Clang 14 or newer.
-
-If the command is not found, ensure that Xcode Command Line Tools are installed and selected by running:
+You should see Apple Clang 14 or newer. If the command is not found, ensure that Xcode Command Line Tools are installed and selected by running:
 
 ```bash
 xcode-select -p
@@ -81,7 +79,7 @@ After installation completes, close the terminal, open a new one, and retry:
 clang++ --version
 ```
 
-## Installing Build Dependencies via Homebrew
+## Installing core tools via Homebrew
 
 Install the core tools required to build Tonatiuh++ using Homebrew:
 
@@ -103,7 +101,7 @@ brew install ninja pkg-config
 
 Ninja provides significantly faster builds than Make, but is not required. pkg-config helps some third-party libraries locate system dependencies.
 
-Verify the installation:
+### Verify core tools installation:
 
 Confirm that the required tools are available:
 
@@ -113,7 +111,7 @@ git --version
 python3 --version
 ```
 
-Each command should print a version number. If any command is not found, ensure Homebrew is correctly installed and that /opt/homebrew/bin is present in your PATH.
+Each command should print a version number. If any command is not found, ensure Homebrew is correctly installed and that `/opt/homebrew/bin` is present in your PATH.
 
 ## Installing Qt 6
 
@@ -137,7 +135,7 @@ Qt provides CMake configuration files under:
 ```
 which allows CMake to locate Qt automatically during configuration.
 
-Verify the Qt installation
+### Verify the Qt installation
 
 You can verify that Qt 6 is installed by running:
 
@@ -210,7 +208,7 @@ The script will:
 
 The initial run may take several minutes.
 
-### Troubleshooting network / SSL issues (rare)
+### Troubleshoot network / SSL issues (rare)
 
 If you encounter SSL errors while downloading sources, ensure that your Python environment has up-to-date certificates:
 
@@ -220,7 +218,7 @@ pip install --upgrade certifi
 Then rerun the build script.
 
 
-## Configure the Build with CMake
+## Configuring the build with CMake
 
 After building the third-party dependencies, configure Tonatiuh++ using CMake.
 
@@ -313,7 +311,7 @@ This diagnostic mode reports missing tools, misconfigured paths, and common macO
 
 ## Summary
 
-To build **Tonatiuh++** on macOS:
+In this guide, you built and installed **Tonatiuh++** from source on macOS. The process consisted of the following main steps:
 
 1. Install Homebrew and the required developer tools.
 2. Install core build tools (CMake, Git, Python) and Qt 6 using Homebrew.
@@ -324,5 +322,3 @@ To build **Tonatiuh++** on macOS:
 7. Launch the installed macOS application bundle.
 
 macOS provides a clean and reliable build environment for Tonatiuh++ thanks to its modern Clang toolchain, robust UNIX foundations, and mature package ecosystem.
-
----

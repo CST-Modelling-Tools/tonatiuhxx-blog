@@ -208,5 +208,3 @@ To build Tonatiuh++ on Ubuntu Linux:
 5. Compile the application.
 
 Ubuntu offers one of the smoothest build environments for Tonatiuh++, and once configured, rebuilding is fast and reliable.
-
----

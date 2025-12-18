@@ -13,7 +13,7 @@ This guide describes a **command-line–only workflow**, without relying on IDE 
 
 <!-- truncate -->
 
-Before starting, make sure the following software is installed on your system:
+Before starting, make sure the following software is installed on your system. Each item is described in detail in the sections below.
 
 - **Python ≥ 3.9** (required to run the dependency build and diagnostic scripts)
 - **Git** (required to clone the repository and fetch third-party sources)
@@ -23,9 +23,9 @@ Before starting, make sure the following software is installed on your system:
 - **Eigen** (header-only linear algebra library)
 - **Boost** (C++ utility libraries)
 
-## Required tools
+## Installing Required Tools
 
-### Installing Python
+### Python
 
 Python is required to run the dependency build and diagnostic scripts used by Tonatiuh++.
 
@@ -68,7 +68,7 @@ python3 --version
 
 If neither command is found, ensure that Python is installed and that its installation directory is included in your system `PATH`.
 
-### Installing Git
+### Git
 
 Git is required to clone the Tonatiuh++ repository and to fetch third-party sources during the build process.
 
@@ -101,7 +101,7 @@ git version 2.52.0.windows.1
 
 If the command is not found, ensure that Git is installed and that its `bin` directory is included in your system `PATH`.
 
-### Installing CMake
+### CMake
 
 CMake is required to configure and build Tonatiuh++ and its third-party dependencies. A sufficiently recent version is mandatory.
 
@@ -137,7 +137,7 @@ cmake version 4.2.1
 If the command is not found, ensure that CMake is installed and that its installation directory is included in your system `PATH`.
 
 
-### Installing Visual Studio Community Edition (MSVC x64)
+### Visual Studio Community Edition (MSVC x64)
 
 Visual Studio Community Edition provides the **Microsoft Visual C++ (MSVC) x64 toolchain**, which is required to compile Tonatiuh++ and all native third-party dependencies on Windows.
 
@@ -178,7 +178,7 @@ If the command is not found, ensure that:
 - the **Desktop development with C++** workload is enabled, and
 - you are using the **x64 Native Tools** command prompt.
 
-### Installing Qt 6 (MSVC x64)
+### Qt 6 (MSVC x64)
 
 Qt 6 is required to build and run the Tonatiuh++ graphical user interface.  
 On Windows, Qt **must** be built with the same compiler as the application, i.e. **MSVC x64**.
@@ -216,7 +216,7 @@ C:\Qt\6.10.1\msvc2022_64\lib
 C:\Qt\6.10.1\msvc2022_64\lib\cmake\Qt6
 ```
 
-The presence of 'lib\cmake\Qt6' confirms that CMake can locate Qt correctly.
+The presence of `lib\cmake\Qt6` confirms that CMake can locate Qt correctly.
 
 Qt does **not** need to be added manually to the system PATH. The build scripts and CMake configuration will locate it automatically.
 
@@ -224,7 +224,7 @@ Qt does **not** need to be added manually to the system PATH. The build scripts 
 
 Eigen is a header-only C++ library used by Tonatiuh++ for linear algebra operations.
 
-#### Install Eigen
+#### Eigen
 
 1. Download Eigen from the official website: https://libeigen.gitlab.io/
 
@@ -250,7 +250,7 @@ If this directory exists, Eigen is correctly installed.
 
 Eigen does **not** need to be added to the system `PATH`. If Eigen is installed in a non-standard location, its path can be provided later to the build scripts.
 
-### Installing Boost
+### Boost
 
 Boost provides a collection of C++ libraries required by some Tonatiuh++'s third-party dependencies.
 
@@ -283,6 +283,8 @@ Boost does **not** need to be added to the system `PATH`. If Boost is installed 
 ## Opening the MSVC x64 Build Environment
 
 All build commands for Tonatiuh++ must be executed from an environment where the **MSVC x64 compiler** and associated tools are correctly configured.
+
+This step does not install new software; it ensures that the correct compiler environment is active.
 
 ### Open the MSVC x64 Native Tools Command Prompt
 
@@ -318,7 +320,7 @@ If cl is not found, ensure that:
 - the Desktop development with C++ workload is enabled, and
 - you are using the x64 Native Tools Command Prompt, not a regular command prompt.
 
-## Clone the repository
+## Cloning the repository
 
 Git is required to download the Tonatiuh++ source code and its third-party dependencies.
 
@@ -348,13 +350,9 @@ If everything looks correct, proceed to building third-party dependencies.
 
 ## Building third-party dependencies
 
-### Build dependencies
-
-Tonatiuh++ relies on several third-party libraries (such as Coin3D, simage, and SoQt) that are built locally using a Python script included in this repository.
+Tonatiuh++ relies on several third-party libraries (such as Coin3D, simage, and SoQt) that are built locally using a Python script included in this repository. On Windows, Debug and Release builds require matching dependency configurations.
 
 All commands in this section must be executed from the **MSVC x64 Native Tools Command Prompt**.
-
----
 
 ### Run the dependency build script
 
@@ -466,7 +464,7 @@ python scripts\build_deps.py --config Debug
 
 After this completes successfully, you can configure and build Tonatiuh++ in Debug.
 
-## Configuring Tonatiuh++ with CMake
+## Configuring Tonatiuh++ with CMake (Windows)
 
 After cloning the repository and building the third-party dependencies, you can configure Tonatiuh++ using CMake.
 
@@ -551,7 +549,7 @@ cmake --install build
 ```
 ### Installation location
 
-By default, Tonatiuh++ is installed into a folder named *"tonatiuhpp"* n the main directory of the user performing the installation. After installation, the executable, libraries, and resources are placed under this installation prefix.
+By default, Tonatiuh++ is installed into a folder named *"tonatiuhpp"* in the home directory of the user performing the installation (for example, `C:\Users\<username>\tonatiuhpp`). After installation, the executable, libraries, and resources are placed under this installation prefix.
 
 If you want to install Tonatiuh++ in a specific location, specify the installation prefix at configuration time using CMAKE_INSTALL_PREFIX. For example:
 
@@ -578,9 +576,7 @@ cmake --install build --config Debug
 
 ## Summary
 
-In this guide, you have built and installed **Tonatiuh++** from source on **Windows 11** using a fully command-line workflow.
-
-The main steps were:
+In this guide, you built and installed **Tonatiuh++** from source on **Windows 11** using a fully command-line workflow. The process consisted of the following main steps:
 
 - Install the required tools and libraries: **Python**, **Git**, **CMake**, **Visual Studio Community Edition (MSVC x64)**, **Qt 6**, **Eigen**, and **Boost**
 - Clone the Tonatiuh++ repository
@@ -597,5 +593,3 @@ python scripts\build_deps.py --doctor
 to verify your environment and identify missing or misconfigured components.
 
 After installation, Tonatiuh++ can be launched from the installation directory and is ready for use.
-
-This workflow ensures a clean, reproducible build using a user-local installation, without requiring administrative privileges or IDE integration.
