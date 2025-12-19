@@ -157,8 +157,7 @@ The process may take several minutes depending on your system.
 Create a build directory and run CMake:
 
 ```bash
-    cmake -B build -S source \
-      -DCMAKE_BUILD_TYPE=Release
+cmake -B build -S source -DCMAKE_BUILD_TYPE=Release
 ```
 
 CMake will:
@@ -177,27 +176,51 @@ If configuration finishes successfully, you will see:
 Compile the project:
 
 ```bash
-    cmake --build build --config Release --parallel
+cmake --build build --config Release --parallel
 ```
 
 The final binary will be located at:
 
-```bash
-    build/application/tonatiuhpp
+```text
+build/application/tonatiuhpp
 ```
 
 Make it executable (if needed):
 
 ```bash
-    chmod +x build/application/TonatiuhXX
+chmod +x build/application/TonatiuhXX
 ```
 
-# 8. Running Tonatiuh++ on Ubuntu
+## Install Tonatiuh++
 
-Run the application directly from the build directory:
+After the build completes successfully, install Tonatiuh++ to the system using CMake:
 
 ```bash
-./build/application/TonatiuhXX
+cmake --install build
+```
+
+By default, Tonatiuh++ is installed into a user-local directory, for example `~/tonatiuhpp`.
+
+This does not require administrator privileges and avoids modifying system directories.
+
+If you want to install to a different location, you may specify it explicitly:
+
+```bash
+cmake --install build --prefix /path/to/install
+```
+
+## Running Tonatiuh++ on Ubuntu
+
+If installed using the default prefix, launch Tonatiuh++ with:
+
+```bash
+~/tonatiuhpp/bin/Tonatiuhpp
+```
+
+Alternatively, you can still run the application directly from the build tree:
+
+```bash
+./build/application/tonatiuhpp
 ```
 
 If the main window opens correctly and the 3D view renders as expected, the installation is complete.
