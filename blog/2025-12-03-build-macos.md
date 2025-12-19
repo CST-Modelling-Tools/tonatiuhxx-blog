@@ -33,7 +33,7 @@ brew update
 
 Homebrew works transparently on both Apple Silicon and Intel Macs and will be used to install CMake, Python, Qt 6, and additional development libraries required by Tonatiuh++.
 
-## Installing required Development Tools
+## Installing required development tools
 
 Tonatiuh++ is built on macOS using the **Apple Clang** compiler and the system SDK provided by Xcode Command Line Tools.
 
@@ -145,7 +145,7 @@ qtpaths --qt-version
 This should report a Qt 6.x version.
 
 **Note**
-Qt does not need to be added to your PATH. The Tonatiuh++ build system and dependency scripts will locate Qt automatically using CMake.
+Qt does not need to be added to your PATH. The Tonatiuh++ build system and dependency scripts will locate Qt automatically using CMake and generated hint files..
 
 ## Cloning the Tonatiuh++ repository
 
@@ -191,6 +191,12 @@ pip install --upgrade pip
 pip install pyyaml
 ```
 
+If you encounter SSL or network-related download errors, ensure certificates are up to date:
+
+```bash
+pip install --upgrade certifi
+```
+
 ### Run the dependency build script
 
 With the virtual environment active, run:
@@ -208,15 +214,11 @@ The script will:
 
 The initial run may take several minutes.
 
-### Troubleshoot network / SSL issues (rare)
-
-If you encounter SSL errors while downloading sources, ensure that your Python environment has up-to-date certificates:
+To diagnose tool detection or environment issues, you can run:
 
 ```bash
-pip install --upgrade certifi
+python scripts/build_deps.py --doctor
 ```
-Then rerun the build script.
-
 
 ## Configuring the build with CMake
 
@@ -239,6 +241,8 @@ If configuration completes successfully, CMake will report that it has found:
 - the Apple Clang compiler,
 - Qt 6,
 - Coin3D and SoQt.
+
+Dependency discovery is handled automatically using the locally built libraries and the generated `cmake/LocalDepsHints.cmake` file.
 
 ## Building and installing Tonatiuh++
 
@@ -263,51 +267,6 @@ You can launch the application either from Finder or from the terminal:
 ```bash
 open ~/tonatiuhpp/bin/tonatiuhpp.app
 ```
-
-## Troubleshooting
-
-### Qt 6 not detected by CMake
-
-If CMake reports that Qt 6 cannot be found, first verify that Qt is installed via Homebrew:
-
-```bash
-qtpaths --qt-version
-```
-
-This should report a Qt 6.x version.
-
-If Qt is installed but CMake still fails to configure, ensure that the dependency build step completed successfully and that cmake/LocalDepsHints.cmake exists in the repository.
-
-### build_deps.py fails to start
-
-On macOS, Homebrew-managed Python requires running the dependency script inside a virtual environment.
-
-Ensure that the virtual environment is activated:
-
-```bash
-source .venv/bin/activate
-```
-
-Then verify that PyYAML is installed:
-
-```bash
-python -c "import yaml; print(yaml.__version__)"
-```
-
-If needed, reinstall it:
-
-```bash
-pip install pyyaml
-```
-
-### Diagnose the environment
-
-To check your system configuration and dependency discovery, you can run:
-
-```bash
-python scripts/build_deps.py --doctor
-```
-This diagnostic mode reports missing tools, misconfigured paths, and common macOS setup issues.
 
 ## Summary
 
