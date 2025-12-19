@@ -29,7 +29,7 @@ Before starting, make sure the following software is installed on your system. E
 
 Python is required to run the dependency build and diagnostic scripts used by Tonatiuh++.
 
-#### Install Python
+To install Python:
 
 1. Download the official Windows installer from: https://www.python.org/downloads/windows/
 
@@ -72,7 +72,7 @@ If neither command is found, ensure that Python is installed and that its instal
 
 Git is required to clone the Tonatiuh++ repository and to fetch third-party sources during the build process.
 
-#### Install Git
+To install Git:
 
 1. Download the official Git for Windows installer from: https://git-scm.com/download/win
 
@@ -105,7 +105,7 @@ If the command is not found, ensure that Git is installed and that its `bin` dir
 
 CMake is required to configure and build Tonatiuh++ and its third-party dependencies. A sufficiently recent version is mandatory.
 
-#### Install CMake
+To install CMake:
 
 1. Download the official Windows installer from: https://cmake.org/download/
 
@@ -141,7 +141,7 @@ If the command is not found, ensure that CMake is installed and that its install
 
 Visual Studio Community Edition provides the **Microsoft Visual C++ (MSVC) x64 toolchain**, which is required to compile Tonatiuh++ and all native third-party dependencies on Windows.
 
-#### Install Visual Studio Community Edition
+To install Visual Studio Community Edition
 
 1. Download the installer from the official Visual Studio website: https://visualstudio.microsoft.com/vs/community/
 
@@ -183,7 +183,7 @@ If the command is not found, ensure that:
 Qt 6 is required to build and run the Tonatiuh++ graphical user interface.  
 On Windows, Qt **must** be built with the same compiler as the application, i.e. **MSVC x64**.
 
-#### Install Qt
+To install Qt:
 
 1. Download the **Qt Online Installer** from: https://www.qt.io/download-qt-installer
 
@@ -206,7 +206,7 @@ By default, Qt is installed under a path similar to:
 ```text
 C:\Qt\6.10.1\msvc2022_64
 ```
-#### Verify the Qt installation
+#### Verify the installation
 
 Check that the Qt installation directory exists and contains the expected subdirectories, in particular:
 
@@ -220,11 +220,11 @@ The presence of `lib\cmake\Qt6` confirms that CMake can locate Qt correctly.
 
 Qt does **not** need to be added manually to the system PATH. The build scripts and CMake configuration will locate it automatically.
 
-### Installing Eigen
+### Eigen
 
 Eigen is a header-only C++ library used by Tonatiuh++ for linear algebra operations.
 
-#### Eigen
+To install Eigen:
 
 1. Download Eigen from the official website: https://libeigen.gitlab.io/
 
@@ -254,7 +254,7 @@ Eigen does **not** need to be added to the system `PATH`. If Eigen is installed 
 
 Boost provides a collection of C++ libraries required by some Tonatiuh++'s third-party dependencies.
 
-#### Install Boost
+To install Boost:
 
 1. Download Boost from the official website: https://www.boost.org/users/download/
 

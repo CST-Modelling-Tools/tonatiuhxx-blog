@@ -11,66 +11,121 @@ Ubuntu Linux provides an excellent environment for building Tonatiuh++ from sour
 
 <!-- truncate -->
 
-# 1. Install Required Build Tools
+## Install Required Tools
+
+### Python, Git, CMake, GCCC
 
 Begin by installing essential development utilities:
 
 ```bash
-    sudo apt update
-    sudo apt install -y build-essential cmake git python3 python3-pip
+sudo apt update
+sudo apt install -y build-essential cmake git python3 python3-pip
 ```
 
 This installs:
 
-- GCC/G++ (C++17 capable)
+- Python (required for build_deps.py)
+- Git
 - Make tools
 - CMake
-- Git
-- Python (required for build_deps.py)
+- GCC/G++
 
-Verify GCC:
+#### Verify core tools installation 
 
 ```bash
-    g++ --version
+python3 --version
+git --version
+g++ --version
 ```
 
-It should report GCC 11 or newer.
+Typically, these commands should report recent versions (`Python >= 3.12.2`, `git >= 2.43.0`, `cnake >= 3.30.2`, and `g++ >= 13.3.0`).
 
-# 2. Install Qt 6
+CMake and build_deps.py require python3 to be discoverable on the system path. If configuration fails due to Python detection, verify that python3 resolves correctly and points to a valid installation.
+
+### Qt 6
 
 Ubuntu’s repositories include Qt 6, which works well for Tonatiuh++.
 
 Install the Qt development packages:
 
 ```bash
-    sudo apt install -y qt6-base-dev qt6-base-dev-tools qt6-tools-dev qt6-tools-dev-tools
+sudo apt install -y \
+  qt6-base-dev qt6-base-dev-tools \
+  qt6-tools-dev qt6-tools-dev-tools \
+  qt6-wayland qt6-svg-dev qt6-5compat-dev
 ```
 
 This installs:
 
 - Qt 6 libraries
-- qmake and Qt tools
-- CMake integration files for Qt
+- Qt tools and utilities
+- CMake integration files
+- Platform plugins and SVG support required at runtime
 
-CMake will automatically detect Qt in: /usr/lib/x86_64-linux-gnu/cmake/Qt6/
+#### Verify installation
 
-# 3. Install Additional Dependencies
-
-Tonatiuh++ builds most third-party dependencies itself, but a few system packages improve compatibility:
+Ensure Qt6 CMake files are avalable:
 
 ```bash
-    sudo apt install -y libx11-dev libxt-dev libxext-dev libgl1-mesa-dev libglu1-mesa-dev
+ls /usr/lib/x86_64-linux-gnu/cmake/Qt6/
+```
+If the directory exists, Qt 6 is correctly installed and ready to be detected by CMake. If missing, reinstall Qt packages.
+
+### Eigen
+
+Tonatiuh++ relies on Eigen as a header-only linear algebra library. On Ubuntu, Eigen is installed system-wide and discovered automatically during configuration.
+
+Install Eigen using:
+
+```bash
+sudo apt update
+sudo apt install -y libeigen3-dev
+```
+#### Verify installation
+Check that the Eigen headers are present:
+
+```bash
+ls /usr/include/eigen3/Eigen/Core
+```
+### Boost
+Tonatiuh++ uses Boost for several core utilities. On Ubuntu, Boost is provided as a system package and must be installed before configuring the project with CMake.
+
+Install Boost using:
+
+```bash
+sudo apt install -y libboost-all-dev
 ```
 
-These are required for Coin3D, SoQt, and OpenGL support.
+#### Verify installation
 
-# 4. Clone the Tonatiuh++ Repository
+Confirm that Boost headers are available:
+
+```bash
+ls /usr/include/boost/version.hpp
+```
+
+### Install additional X11 and OpenGL dependencies
+
+Tonatiuh++ relies on Coin3D, SoQt, and OpenGL, which require several X11 and GL development headers on Linux.
+
+Install the required system packages:
+
+```bash
+sudo apt install -y \
+  libx11-dev libxt-dev libxext-dev libxmu-dev libxi-dev \
+  libgl1-mesa-dev libglu1-mesa-dev freeglut3-dev
+
+```
+
+Installing these packages upfront avoids common build and link errors when compiling third-party dependencies.
+
+## Clone the Tonatiuh++ Repository
 
 Choose a working folder and clone the source:
 
 ```bash
-    git clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git
-    cd tonatiuhpp
+git clone https://github.com/CST-Modelling-Tools/tonatiuhpp.git
+cd tonatiuhpp
 ```
 Project structure includes:
 
@@ -78,26 +133,26 @@ Project structure includes:
 - `build_deps.py` – dependency builder
 - `CMakeLists.txt` – build configuration
 
-# 5. Build Third-Party Dependencies
+## Build third-party dependencies
 
-Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries.
+Tonatiuh++ uses Coin3D, SoQt, simage, and other libraries, which are built automatically using the provided script.
 
-These are compiled automatically using the provided script:
+Run:
 
 ```bash
-    python3 build_deps.py
+python3 build_deps.py
 ```
 
 This step:
 
-- downloads sources
+- downloads required third-party sources,
 - configures builds
-- compiles the libraries
-- installs them under `deps/install/`
+- configures and builds each dependency,
+- installs them under `third_party/_install,`
 
-It may take several minutes.
+The process may take several minutes depending on your system.
 
-# 6. Configure the Tonatiuh++ Build with CMake
+## Configure the Tonatiuh++ Build with CMake
 
 Create a build directory and run CMake:
 
@@ -117,7 +172,7 @@ If configuration finishes successfully, you will see:
 - “Configuring done”
 - “Generating done”
 
-# 7. Build the Application
+## Build the Application
 
 Compile the project:
 
@@ -139,65 +194,31 @@ Make it executable (if needed):
 
 # 8. Running Tonatiuh++ on Ubuntu
 
-Execute directly:
+Run the application directly from the build directory:
 
 ```bash
-    ./build/application/TonatiuhXX
+./build/application/TonatiuhXX
 ```
 
-If Qt plugins or shared libraries are missing, install:
+If the main window opens correctly and the 3D view renders as expected, the installation is complete.
+
+### Optional: Install OpenGL for Better Rendering
+
+Most Ubuntu systems already include Mesa drivers, but if not, install OpenGL utilities for diagnostics::
 
 ```bash
-    sudo apt install -y qt6-wayland qt6-svg-dev qt6-5compat-dev
+sudo apt install -y mesa-utils
 ```
 
-# 9. Optional: Install OpenGL for Better Rendering
-
-Most Ubuntu systems already include Mesa drivers, but if not:
-
-```bash
-    sudo apt install -y mesa-utils
-```
+#### Verify installation
 
 Test OpenGL:
 
 ```bash
-    glxinfo | grep "OpenGL version"
+glxinfo | grep "OpenGL version"
 ```
 
-# 10. Troubleshooting
-
-## Qt6 not found
-Ensure Qt6 CMake files exist:
-
-```bash
-    ls /usr/lib/x86_64-linux-gnu/cmake/Qt6/
-```
-
-If missing, reinstall Qt packages.
-
-## Coin3D or SoQt build failures
-Install additional X11/OpenGL headers:
-
-```bash
-    sudo apt install -y libxmu-dev libxi-dev freeglut3-dev
-```
-
-## CMake cannot find Python
-Verify:
-
-```bash
-    python3 --version
-    which python3
-```
-
-## Linking errors involving GL or X11
-Install missing components:
-
-```bash
-    sudo apt install -y libgl1-mesa-dev libglu1-mesa-dev libx11-dev libxt-dev
-```
-# Summary
+## Summary
 
 To build Tonatiuh++ on Ubuntu Linux:
 
