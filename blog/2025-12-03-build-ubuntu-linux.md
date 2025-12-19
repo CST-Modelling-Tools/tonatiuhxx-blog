@@ -11,7 +11,7 @@ Ubuntu Linux provides an excellent environment for building Tonatiuh++ from sour
 
 <!-- truncate -->
 
-## Install Required Tools
+## Install required tools
 
 ### Python, Git, CMake, GCCC
 
@@ -104,7 +104,7 @@ Confirm that Boost headers are available:
 ls /usr/include/boost/version.hpp
 ```
 
-### Install additional X11 and OpenGL dependencies
+### X11 and OpenGL dependencies
 
 Tonatiuh++ relies on Coin3D, SoQt, and OpenGL, which require several X11 and GL development headers on Linux.
 
@@ -119,7 +119,7 @@ sudo apt install -y \
 
 Installing these packages upfront avoids common build and link errors when compiling third-party dependencies.
 
-## Clone the Tonatiuh++ Repository
+## Clone the Tonatiuh++ repository
 
 Choose a working folder and clone the source:
 
@@ -152,7 +152,7 @@ This step:
 
 The process may take several minutes depending on your system.
 
-## Configure the Tonatiuh++ Build with CMake
+## Configure the Tonatiuh++ build 
 
 Create a build directory and run CMake:
 
@@ -225,7 +225,7 @@ Alternatively, you can still run the application directly from the build tree:
 
 If the main window opens correctly and the 3D view renders as expected, the installation is complete.
 
-### Optional: Install OpenGL for Better Rendering
+### Optional: Install OpenGL for better rendering
 
 Most Ubuntu systems already include Mesa drivers, but if not, install OpenGL utilities for diagnostics::
 
