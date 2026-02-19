@@ -4,10 +4,10 @@ import Giscus from '@giscus/react';
 export default function GiscusComments() {
   return (
     <Giscus
-      repo="CST-Modelling-Tools/tonatiuhxx-blog"
+      repo="CST-Modelling-Tools/tonatiuhpp-blog"
       repoId="R_kgDOQCS6Ig"
-      category="Announcements"
-      categoryId="DIC_kwDOQCS6Is4CwrAZ"
+      category="General"
+      categoryId="DIC_kwDOQCS6Is4CwrAa"
       mapping="pathname"
       strict="0"
       reactionsEnabled="1"
