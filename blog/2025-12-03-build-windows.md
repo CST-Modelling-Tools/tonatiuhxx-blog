@@ -5,7 +5,7 @@ authors: mblanco
 tags: [windows, build, development]
 ---
 
-![Tonatiuh++ running on Windows 11](/img/tonatiuhxx-windows-screenshot.png)
+![Tonatiuh++ running on Windows 11](/img/tonatiuhpp-windows-screenshot.png)
 
 Building **Tonatiuh++** from source on **Windows 11** requires installing a small set of development tools and third-party libraries, building additional dependencies using the build scripts included in this repository, configuring the project with CMake, and finally installing it so that all runtime dependencies are correctly resolved.
 

@@ -8,9 +8,9 @@ tags: [build, development, overview]
 import useBaseUrl from '@docusaurus/useBaseUrl';
 
 <div className="slideshow">
-  <img src={useBaseUrl('/img/tonatiuhxx-windows-screenshot.png')} alt="Tonatiuh++ on Windows" />
-  <img src={useBaseUrl('/img/tonatiuhxx-apple-screenshot.png')} alt="Tonatiuh++ on macOS" />  
-  <img src={useBaseUrl('/img/tonatiuhXX-ubuntu-linux-screenshot.png')} alt="Tonatiuh++ on Linux" />
+  <img src={useBaseUrl('/img/tonatiuhpp-windows-screenshot.png')} alt="Tonatiuh++ on Windows" />
+  <img src={useBaseUrl('/img/tonatiuhpp-apple-screenshot.png')} alt="Tonatiuh++ on macOS" />  
+  <img src={useBaseUrl('/img/tonatiuhpp-ubuntu-linux-screenshot.png')} alt="Tonatiuh++ on Linux" />
 </div>
 
 Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: **Windows 11**, **Linux**, and **macOS**.

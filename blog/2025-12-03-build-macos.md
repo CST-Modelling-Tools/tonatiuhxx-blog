@@ -5,7 +5,7 @@ authors: mblanco
 tags: [macos, build, development]
 ---
 
-![Tonatiuh++ running on macOS](/img/tonatiuhxx-apple-screenshot.png)
+![Tonatiuh++ running on macOS](/img/tonatiuhpp-apple-screenshot.png)
 
 macOS provides a clean and robust environment for building **Tonatiuh++** thanks to its modern **Apple Clang** compiler, strong UNIX foundations, and excellent package management through **Homebrew**.  
 
@@ -258,7 +258,7 @@ By default, Tonatiuh++ is installed into a user-local directory (for example ~/t
 On macOS, the application bundle will be located at:
 
 ```text
-<install-prefix>/bin/TonatiuhXX.app
+<install-prefix>/bin/tonatiuhpp.app
 ```
 
 ## Running Tonatiuh++

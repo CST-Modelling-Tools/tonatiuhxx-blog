@@ -68,7 +68,7 @@ const config = {
             title: 'Tonatiuh++ Development Blog',
             description:
               'Latest developments in solar ray tracing and CST optimization research',
-            copyright: `Copyright © ${new Date().getFullYear()} TonatiuhXX Development`,
+            copyright: `Copyright © ${new Date().getFullYear()} Tonatiuh++ Development`,
             language: 'en',
           },
         },
@@ -129,7 +129,7 @@ const config = {
       ],
 
       // Replace with your project's social card
-      image: 'img/tonatiuhxx-social-card.jpg',
+      image: 'img/tonatiuhpp-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -138,7 +138,7 @@ const config = {
         title: 'Tonatiuh++ Development Blog',
         logo: {
           alt: 'Tonatiuh++ Solar Ray Tracing Software Logo',
-          src: 'img/tonatiuhxx-icon.png',
+          src: 'img/tonatiuhpp-icon.png',
         },
         items: [
           // Funding block: logically "left", visually centered with CSS
@@ -198,7 +198,7 @@ const config = {
             items: [
               {
                 label: 'GitHub',
-                href: 'https://github.com/CST-Modelling-Tools/tonatiuhxx-blog',
+                href: 'https://github.com/CST-Modelling-Tools/tonatiuhpp-blog',
               },
             ],
           },
@@ -216,7 +216,7 @@ const config = {
                     </p>
                     <p>
                       Grant ATR2024-155003 funded by:<br/>
-                      <img class="funding-logo" src="/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
+                      <img class="funding-logo" src="/tonatiuhpp-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
                     </p>
                   </div>
                 `,
