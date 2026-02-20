@@ -129,7 +129,7 @@ const config = {
       ],
 
       // Replace with your project's social card
-      image: 'img/tonatiuhxx-social-card.png',
+      image: 'img/tonatiuhxx-social-card.jpg',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -161,7 +161,7 @@ const config = {
 
           // GitHub link on the right
           {
-            href: 'https://github.com/CST-Modelling-Tools/TonatiuhXX',
+            href: 'https://github.com/CST-Modelling-Tools/tonatiuhpp',
             label: 'GitHub',
             position: 'right',
           },
@@ -184,8 +184,8 @@ const config = {
             title: 'Resources',
             items: [
               {
-                label: 'TonatiuhXX Repository',
-                href: 'https://github.com/CST-Modelling-Tools/TonatiuhXX',
+                label: 'Tonatiuh++ Repository',
+                href: 'https://github.com/CST-Modelling-Tools/tonatiuhpp',
               },
               {
                 label: 'Original Tonatiuh',
