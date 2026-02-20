@@ -5,7 +5,7 @@ authors: mblanco
 tags: [linux, ubuntu, build, development]
 ---
 
-![Tonatiuh++ running on Ubuntu Linux](/img/tonatiuhxx-ubuntu-linux-screenshot.png)
+![Tonatiuh++ running on Ubuntu Linux](/img/tonatiuhXX-ubuntu-linux-screenshot.png)
 
 Ubuntu Linux provides an excellent environment for building Tonatiuh++ from source thanks to powerful package management tools, modern C++ compilers, and first-class CMake support. This guide explains how to install all necessary dependencies, compile third-party libraries, and build the full Tonatiuh++ application on Ubuntu 22.04 or later.
 
