@@ -27,11 +27,6 @@ const config = {
   projectName: 'tonatiuhpp-blog',
   deploymentBranch: 'gh-pages',
 
-  // GitHub pages deployment config.
-  // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'CST-Modelling-Tools', // Usually your GitHub org/user name.
-  projectName: 'tonatiuhxx-blog', // Usually your repo name.
-
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
@@ -134,7 +129,7 @@ const config = {
       ],
 
       // Replace with your project's social card
-      image: 'img/tonatiuhxx-social-card.jpg',
+      image: 'img/tonatiuhxx-social-card.png',
       colorMode: {
         respectPrefersColorScheme: true,
       },
@@ -221,7 +216,7 @@ const config = {
                     </p>
                     <p>
                       Grant ATR2024-155003 funded by:<br/>
-                      <img class="funding-logo" src="/tonatiuhpp-blog/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
+                      <img class="funding-logo" src="/img/MICIU_AEI.jpg" alt="MICIU + AEI logo" />
                     </p>
                   </div>
                 `,

@@ -5,10 +5,12 @@ authors: mblanco
 tags: [build, development, overview]
 ---
 
+import useBaseUrl from '@docusaurus/useBaseUrl';
+
 <div className="slideshow">
-  <img src="img/tonatiuhxx-windows-screenshot.png" alt="Tonatiuh++ on Windows" />
-  <img src="img/tonatiuhxx-apple-screenshot.png" alt="Tonatiuh++ on macOS" />  
-  <img src="img/tonatiuhxx-ubuntu-linux-screenshot.png" alt="Tonatiuh++ on Linux" />
+  <img src={useBaseUrl('/img/tonatiuhxx-windows-screenshot.png')} alt="Tonatiuh++ on Windows" />
+  <img src={useBaseUrl('/img/tonatiuhxx-apple-screenshot.png')} alt="Tonatiuh++ on macOS" />  
+  <img src={useBaseUrl('/img/tonatiuhxx-ubuntu-linux-screenshot.png')} alt="Tonatiuh++ on Linux" />
 </div>
 
 Tonatiuh++ is designed as a modern, cross-platform Free and Open-Source Software project. One of its foundational goals is to support native builds on the three major operating systems used in scientific and engineering environments: **Windows 11**, **Linux**, and **macOS**.
@@ -110,9 +112,9 @@ The final executable will be available under the `build/application/` directory.
 
 Because each operating system has its own package managers, compiler conventions, and environment variables, the following posts provide in-depth instructions for each case:
 
-- **[How to build Tonatiuh++ from source on Windows 11](/tonatiuhpp-blog/build-windows)**
-- **[How to build Tonatiuh++ from source on Ubuntu Linux](/tonatiuhpp-blog/build-linux)**
-- **[How to build Tonatiuh++ from source on macOS](/tonatiuhpp-blog/build-macos)**
+- **[How to build Tonatiuh++ from source on Windows 11](/build-windows)**
+- **[How to build Tonatiuh++ from source on Ubuntu Linux](/build-linux)**
+- **[How to build Tonatiuh++ from source on macOS](/build-macos)**
 
 These platform-specific posts cover:
 
