@@ -43,11 +43,11 @@ Ensure Tonatiuh++ can be built cleanly from the source code and run natively on 
 ### 2. Establish a professional CI/CD workflow  
 Deploy a GitHub-based continuous integration and continuous development pipeline to automate building, testing, and packaging.
 
-### 3. Repair the software update mechanism  
-The prior self-update system ceased to function when CYI discontinued the Bitbucket server hosting update metadata. Restoring this capability is a priority.
-
-### 4. Provide a professional installer and distribution options  
+### 3. Provide a professional installer and distribution options  
 Enable users to choose between building from source or installing precompiled binaries through a reliable installer.
+
+### 4. Repair the software update mechanism  
+The prior self-update system ceased to function when CYI discontinued the Bitbucket server hosting update metadata. Restoring this capability is a priority.
 
 ### 5. Introduce benchmarking capabilities  
 Define appropriate benchmarks to evaluate performance, guide improvements, and quantify software advancements.
@@ -56,7 +56,7 @@ Define appropriate benchmarks to evaluate performance, guide improvements, and q
 
 ## Target Timeline
 
-My objective is to complete these foundational restoration and infrastructure tasks by **January 2026**, potentially earlier if additional collaborators join the effort.
+My objective is to complete these foundational restoration and infrastructure tasks by **May 2026**, potentially earlier if additional collaborators join the effort.
 
 Once these steps are achieved, the development focus will shift from infrastructure to **innovation**, enabling the introduction of new features and capabilities that will expand the analytical and simulation capabilities of Tonatiuh++.
 
