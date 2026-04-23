@@ -72,3 +72,18 @@ macos:
   label: macOS
   permalink: /macos
   description: Posts about building and running Tonatiuh++ on macOS.
+
+release:
+  label: Release
+  permalink: /release
+  description: Posts announcing Tonatiuh++ software releases.
+
+binaries:
+  label: Binaries
+  permalink: /binaries
+  description: Posts related to precompiled Tonatiuh++ binary distributions.
+
+cross-platform:
+  label: Cross-platform
+  permalink: /cross-platform
+  description: Posts about consistent Tonatiuh++ support across Windows, Linux, and macOS.  
