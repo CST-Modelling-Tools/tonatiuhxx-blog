@@ -87,3 +87,13 @@ cross-platform:
   label: Cross-platform
   permalink: /cross-platform
   description: Posts about consistent Tonatiuh++ support across Windows, Linux, and macOS.  
+
+updater:
+  label: updater
+  permalink: /tags/updater
+  description: Posts related to the Tonatiuh++ automatic update system.
+
+ifw:
+  label: ifw
+  permalink: /tags/ifw
+  description: Qt Installer Framework (IFW) packaging and update infrastructure.
